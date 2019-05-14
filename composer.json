@@ -1,0 +1,71 @@
+{
+    "name": "ijeffro/laralocker",
+    "description": "Laravel + Learning Locker || A Laravel Package for Learning Locker.",
+    "keywords": ["laravel", "learning locker", "xapi", "lrs"],
+    "license": "MIT",
+    "homepage": "https://ijeffro.github.io/laralocker/",
+    "support": {
+        "issues": "https://github.com/ijeffro/laralocker/issues",
+        "source": "https://github.com/ijeffro/laralocker"
+    },
+    "authors": [
+        {
+            "name": "Phil Graham",
+            "email": "phil.graham@ht2labs.com"
+        },
+        {
+            "name": "Josh Wilkinson",
+            "email": "josh.wilkinson@ht2labs.com"
+        },
+        {
+            "name": "James Mullaney",
+            "email": "james.mullaney@ht2labs.com"
+        },
+        {
+            "name": "Pete Thorne",
+            "email": "pete.thorne@ht2labs.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+        "rusticisoftware/tincan": "0.*",
+        "lcobucci/jwt": "^3.2",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpcov": "~4.0|~5.0|~6.0",
+        "phpunit/phpunit": "~5.7.14|~6.1|~7.0|~8.0",
+        "laravel/framework": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+        "orchestra/testbench": "~3.0",
+        "rusticisoftware/tincan": "0.*",
+        "laravel/browser-kit-testing": "~2.0.0|~3.0.0|~4.0.0|~5.0.0|~5.1",
+        "orchestra/testbench-browser-kit": "~3.5|~3.6|~3.7|~3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaraLocker\\": "src/",
+            "LearningLocker\\": "src/LearningLocker",
+            "xAPI\\": "src/LearningLocker/Statements"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaraLocker\\Tests\\": "tests/"
+      }
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaraLocker\\LaraLockerServiceProvider",
+                "LearningLocker\\LearningLockerServiceProvider",
+                "xAPI\\xAPIServiceProvider"
+            ],
+            "aliases": {
+                "LaraLocker": "LaraLocker\\Facades\\LaraLocker",
+                "LearningLocker": "LaraLocker\\Facades\\LearningLocker",
+                "xAPI": "LaraLocker\\Facades\\xAPI"
+            }
+        }
+    }
+}
