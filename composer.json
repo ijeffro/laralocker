@@ -64,10 +64,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ijeffro\\Laralocker\\LaralockerServiceProvider"
+                "Ijeffro\\Laralocker\\Providers\\LaralockerServiceProvider"
             ],
             "aliases": {
-                "Laralocker": "Ijeffro\\Laralocker\\LaralockerFacade"
+                "Laralocker": "Ijeffro\\Laralocker\\Facades\\LaralockerFacade"
             }
         }
     }
