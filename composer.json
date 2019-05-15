@@ -61,9 +61,7 @@
         },
         "laravel": {
             "providers": [
-                "LaraLocker\\LaraLockerServiceProvider",
-                "LearningLocker\\LearningLockerServiceProvider",
-                "xAPI\\xAPIServiceProvider"
+                "LaraLocker\\LaraLockerServiceProvider"
             ],
             "aliases": {
                 "LaraLocker": "LaraLocker\\Facades\\LaraLocker",

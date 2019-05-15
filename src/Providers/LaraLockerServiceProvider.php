@@ -9,19 +9,25 @@ class LaraLockerServiceProvider extends ServiceProvider
 {
   public function register()
   {
-    $app = $this->app;
 
-    $app['laralocker'] = function () {
-      return new LaraLockerHandler;
-    };
+    $this->app->singleton(LaraLocker::class, function () {
+        return new LaraLocker();
+    });
+    $this->app->alias(LaraLocker::class, 'laralocker');
 
-    $app['learninglocker'] = function () {
-        return new LearningLockerHandler;
-    };
+    // $app = $this->app;
 
-    $app['xapi'] = function () {
-        return new StatementHandler;
-    };
+    // $app['laralocker'] = function () {
+    //   return new LaraLockerHandler;
+    // };
+
+    // $app['learninglocker'] = function () {
+    //     return new LearningLockerHandler;
+    // };
+
+    // $app['xapi'] = function () {
+    //     return new StatementHandler;
+    // };
 
     // $this->loadViewsFrom(__DIR__.'../publishable/views', 'laralocker');
     // $this->publishes([
@@ -42,7 +48,7 @@ class LaraLockerServiceProvider extends ServiceProvider
     // $this->publishes([
     //   __DIR__.'/path/to/translations' => resource_path('lang/vendor/courier'),
     // ]);
-    
+
 
     // $this->publishes([
     //   __DIR__.'../publishable/config/single-tenant/laralocker.php' => config_path('laralocker.php'),
@@ -51,6 +57,6 @@ class LaraLockerServiceProvider extends ServiceProvider
     // $this->publishes([
     //   __DIR__.'../publishable/config/multi-tenant/laralocker.php' => config_path('laralocker.php'),
     // ]);
-    
+
   }
 }
