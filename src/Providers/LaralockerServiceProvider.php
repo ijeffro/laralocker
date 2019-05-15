@@ -44,6 +44,16 @@ class LaralockerServiceProvider extends ServiceProvider
         }
     }
 
+
+    /**
+     * Register the commands accessible from the Console.
+     */
+    private function registerConsoleCommands()
+    {
+        $this->commands(Commands\InstallCommand::class);
+    }
+
+
     /**
      * Register the application services.
      */
