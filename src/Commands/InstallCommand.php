@@ -1,6 +1,6 @@
 <?php
 
-namespace HT2\LaraLocker\Commands;
+namespace Ijeffro\LaraLocker\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -102,9 +102,9 @@ class InstallCommand extends Command
         $this->info('Seeding data into the database');
         $this->seed('LaraLockerDatabaseSeeder');
 
-       
+
         $this->call('vendor:publish', ['--provider' => LaraLockerServiceProvider::class, '--tag' => ['config', 'LaraLocker_avatar']]);
-     
+
 
         $this->info('Successfully installed LaraLocker! Enjoy');
     }
