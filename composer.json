@@ -44,9 +44,8 @@
     },
     "autoload": {
         "psr-4": {
-            "LaraLocker\\": "src/",
-            "LearningLocker\\": "src/LearningLocker",
-            "xAPI\\": "src/LearningLocker/Statements"
+            "LaraLocker\\": "src/"
+
         }
     },
     "autoload-dev": {
