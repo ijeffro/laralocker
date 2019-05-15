@@ -7,13 +7,10 @@ use Illuminate\Filesystem\Filesystem;
 use Intervention\Image\ImageServiceProviderLaravel5;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
-use Ijeffro\LaraLocker\Providers\LaraLockerDummyServiceProvider;
-use Ijeffro\LaraLocker\Traits\Seedable;
 use Ijeffro\LaraLocker\LaraLockerServiceProvider;
 
 class InstallCommand extends Command
 {
-    use Seedable;
 
     protected $seedersPath = __DIR__.'/../../publishable/database/seeds/';
 
