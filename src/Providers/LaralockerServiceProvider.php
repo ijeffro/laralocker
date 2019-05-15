@@ -44,6 +44,24 @@ class LaralockerServiceProvider extends ServiceProvider
         }
     }
 
+    /**
+     * Register the application services.
+     */
+    public function register()
+    {
+        if ($this->app->runningInConsole()) {
+            // $this->registerPublishableResources();
+            $this->registerConsoleCommands();
+        }
+
+        // Automatically apply the package configuration
+        $this->mergeConfigFrom(__DIR__.'/../../publishable/config/laralocker.php', 'laralocker');
+
+        // Register the main class to use with the facade
+        $this->app->singleton('laralocker', function () {
+            return new Laralocker;
+        });
+    }
 
     /**
      * Register the commands accessible from the Console.
@@ -53,18 +71,4 @@ class LaralockerServiceProvider extends ServiceProvider
         $this->commands(Commands\InstallCommand::class);
     }
 
-
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../../publishable/config/laralocker.php', 'laralocker');
-
-        // Register the main class to use with the facade
-        $this->app->singleton('laralocker', function () {
-            return new Laralocker;
-        });
-    }
 }
