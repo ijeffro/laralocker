@@ -1,6 +1,6 @@
 <?php
 
-namespace Ijeffro\Laralocker;
+namespace Ijeffro\Laralocker\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
