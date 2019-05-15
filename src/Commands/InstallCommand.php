@@ -7,9 +7,9 @@ use Illuminate\Filesystem\Filesystem;
 use Intervention\Image\ImageServiceProviderLaravel5;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
-use TCG\LaraLocker\Providers\LaraLockerDummyServiceProvider;
-use TCG\LaraLocker\Traits\Seedable;
-use TCG\LaraLocker\LaraLockerServiceProvider;
+use Ijeffro\LaraLocker\Providers\LaraLockerDummyServiceProvider;
+use Ijeffro\LaraLocker\Traits\Seedable;
+use Ijeffro\LaraLocker\LaraLockerServiceProvider;
 
 class InstallCommand extends Command
 {
