@@ -54,10 +54,8 @@
             "LaraLocker\\Tests\\": "tests/"
       }
     },
+    "minimum-stability": "stable",
     "extra": {
-        "branch-alias": {
-            "dev-master": "--dev"
-        },
         "laravel": {
             "providers": [
                 "LaraLocker\\LaraLockerServiceProvider",
