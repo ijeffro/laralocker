@@ -21,7 +21,7 @@ class LaralockerServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laralocker.php'),
+                __DIR__.'/../../config/laralocker.php' => config_path('laralocker.php'),
             ], 'config');
 
             // Publishing the views.
