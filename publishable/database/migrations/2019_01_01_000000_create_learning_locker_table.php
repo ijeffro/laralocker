@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use HT2\LaraLocker\Models\Statement;
 
-class CreatexALearningLockerTable extends Migration
+class CreateLearningLockerTable extends Migration
 {
     /**
      * Run the migrations.
