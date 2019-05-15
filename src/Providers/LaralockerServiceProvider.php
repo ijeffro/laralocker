@@ -21,7 +21,7 @@ class LaralockerServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/laralocker.php' => config_path('laralocker.php'),
+                __DIR__.'/../config/config.php' => config_path('laralocker.php'),
             ], 'config');
 
             // Publishing the views.
@@ -50,7 +50,7 @@ class LaralockerServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/laralocker.php', 'laralocker');
+        $this->mergeConfigFrom(__DIR__.'/../../config/laralocker.php', 'laralocker');
 
         // Register the main class to use with the facade
         $this->app->singleton('laralocker', function () {
