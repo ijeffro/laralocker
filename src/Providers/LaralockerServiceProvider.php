@@ -3,6 +3,7 @@
 namespace Ijeffro\Laralocker\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Ijeffro\Laralocker\Commands\InstallCommand;
 
 class LaralockerServiceProvider extends ServiceProvider
 {
