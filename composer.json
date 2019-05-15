@@ -44,28 +44,30 @@
     },
     "autoload": {
         "psr-4": {
-            "LaraLocker\\": "src/"
-
+            "Ijeffro\\Laralocker\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaraLocker\\Tests\\": "tests/"
-      }
+            "Ijeffro\\Laralocker\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "extra": {
-        "branch-alias": {
-            "dev-master": "master"
-        },
         "laravel": {
             "providers": [
-                "LaraLocker\\LaraLockerServiceProvider"
+                "Ijeffro\\Laralocker\\LaralockerServiceProvider"
             ],
             "aliases": {
-                "LaraLocker": "LaraLocker\\Facades\\LaraLocker",
-                "LearningLocker": "LaraLocker\\Facades\\LearningLocker",
-                "xAPI": "LaraLocker\\Facades\\xAPI"
+                "Laralocker": "Ijeffro\\Laralocker\\LaralockerFacade"
             }
         }
     }
