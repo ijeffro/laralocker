@@ -12,18 +12,6 @@
         {
             "name": "Phil Graham",
             "email": "phil.graham@ht2labs.com"
-        },
-        {
-            "name": "Josh Wilkinson",
-            "email": "josh.wilkinson@ht2labs.com"
-        },
-        {
-            "name": "James Mullaney",
-            "email": "james.mullaney@ht2labs.com"
-        },
-        {
-            "name": "Pete Thorne",
-            "email": "pete.thorne@ht2labs.com"
         }
     ],
     "require": {
