@@ -5,7 +5,7 @@ namespace Ijeffro\Laralocker;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Ijeffro\Laralocker\Skeleton\SkeletonClass
+ * @see \Ijeffro\Laralocker
  */
 class LaralockerFacade extends Facade
 {
