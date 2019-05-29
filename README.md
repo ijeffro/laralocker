@@ -4,7 +4,7 @@
 [![Build Status](https://img.shields.io/travis/ijeffro/laralocker/master.svg?style=flat-square)](https://travis-ci.org/ijeffro/laralocker)
 [![Quality Score](https://img.shields.io/scrutinizer/g/ijeffro/laralocker.svg?style=flat-square)](https://scrutinizer-ci.com/g/ijeffro/laralocker)
 [![Total Downloads](https://img.shields.io/packagist/dt/ijeffro/laralocker.svg?style=flat-square)](https://packagist.org/packages/ijeffro/laralocker)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
