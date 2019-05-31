@@ -24,20 +24,20 @@ composer require ijeffro/laralocker
 
 ### Clients
 
-Retreive Learning Locker's API Clients
+Retreive Learning Locker's API Clients:
 
 ``` php
 LearningLocker::clients()->get()
 ```
 
-Retreive API Clients by ID
+Retreive Learning Locker's API Client by ID:
 
 ``` php
 $id = '5c63fabd27cc1568a010ef54';
 LearningLocker::client($id)->get()
 ```
 
-Update Learning Locker's API Client by client ID
+Update Learning Locker's API Client by client ID:
 
 ``` php
 $id = '5c63fabd27cc1568a010ef54';
@@ -48,6 +48,29 @@ $data = [
 LearningLocker::client($id)->update($data)
 ```
 
+
+### Users
+
+Retreive Learning Locker's User's:
+
+``` php
+LearningLocker::clients()->get()
+```
+
+Retreive earning Locker's User's by ID:
+
+``` php
+$id = '5c63fabd27cc1568a010ef54';
+LearningLocker::user($id)->get()
+```
+
+Update Learning Locker's User's by client ID:
+
+``` php
+$id = '5aa6711c8ea12f33a1e94452';
+$data = ["name" => "NutMeg" ];
+LearningLocker::user($id)->update($data)
+```
 
 ### Testing
 
