@@ -6,6 +6,13 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ijeffro/laralocker.svg?style=flat-square)](https://packagist.org/packages/ijeffro/laralocker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
+Laralocker is a Learning Locker package for Laravel.
+
+The World's Most Installed Learning Record Store (LRS). Learning Locker® has both Open Source and Enterprise editions. ... A free course to support you in getting your very own Learning Locker® Learning Record Store up, running and stable for you to develop and test your own xAPI concepts.
+
+Please refer to [Learning Locker 101](https://beta.curatr3.com/courses/learnxapi-101/home) for a basic overview of Learning Locker. If you require further understanding of xAPI then please enrol on [Understanding the Impact the Final xAPI Frontier](http://beta.curatr3.com/courses/understanding-impact-the-final-xapi-frontier/). If you require additional knowledge about, you can enrol on [Run Your Own LRS](http://beta.curatr3.com/courses/learnxapi-run-your-own-lrs).
+
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
 ## Installation
