@@ -22,6 +22,29 @@ composer require ijeffro/laralocker
 // Usage description here
 ```
 
+### Clients
+
+``` php
+LearningLocker::clients()->get()
+```
+
+### Client
+
+``` php
+$id = '5c63fabd27cc1568a010ef54';
+LearningLocker::client($id)->get()
+```
+
+### Update Client
+``` php
+$id = '5c63fabd27cc1568a010ef54';
+$data = [
+    "title" => "Laralocker",
+    "isTrusted" => true
+];
+LearningLocker::client($id)->update($data)
+```
+
 ### Testing
 
 ``` bash
