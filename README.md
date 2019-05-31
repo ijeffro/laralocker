@@ -11,8 +11,6 @@ Laralocker is a Learning Locker package for Laravel. Learning Locker® The World
 
 Please refer to <a href="https://beta.curatr3.com/courses/learnxapi-101" target="_blank">Learning Locker 101</a> for a basic overview of Learning Locker. If you require further understanding of xAPI then please enrol on <a href="https://beta.curatr3.com/courses/understanding-impact-the-final-xapi-frontier/" target="_blank">Understanding the Impact the Final xAPI Frontier</a>. If you require additional knowledge about Learning Locker as an LRS, feel free to enrol on <a href="https://beta.curatr3.com/courses/learnxapi-run-your-own-lrs" target="_blank">Run Your Own LRS</a>.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
-
 ## Installation
 
 You can install the package via composer:
