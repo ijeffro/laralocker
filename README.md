@@ -11,7 +11,7 @@ Laralocker is a Learning Locker package for Laravel.
 
 The World's Most Installed Learning Record Store (LRS). Learning Locker® has both Open Source and Enterprise editions. ... A free course to support you in getting your very own Learning Locker® Learning Record Store up, running and stable for you to develop and test your own xAPI concepts.
 
-Please refer to [Learning Locker 101](https://beta.curatr3.com/courses/learnxapi-101/home) for a basic overview of Learning Locker. If you require further understanding of xAPI then please enrol on [Understanding the Impact the Final xAPI Frontier](http://beta.curatr3.com/courses/understanding-impact-the-final-xapi-frontier/). If you require additional knowledge about, you can enrol on [Run Your Own LRS](http://beta.curatr3.com/courses/learnxapi-run-your-own-lrs).
+Please refer to <a href="https://beta.curatr3.com/courses/learnxapi-101" target="_blank">Learning Locker 101</a> for a basic overview of Learning Locker. If you require further understanding of xAPI then please enrol on <a href="https://beta.curatr3.com/courses/understanding-impact-the-final-xapi-frontier/" target="_blank">Understanding the Impact the Final xAPI Frontier</a>. If you require additional knowledge about, you can enrol on <a href="https://beta.curatr3.com/courses/learnxapi-run-your-own-lrs" target="_blank">Run Your Own LRS</a>.
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
