@@ -31,7 +31,13 @@ php artisan laralocker:install
 You can call Learning Locker® in various different ways
 
 
-Trying using the Learning Locker Facade to access the stores (LRS).
+<p>Trying using the Learning Locker Facade to access the stores (LRS).</p>
+```php
+use LearningLocker;
+```
+
+
+<p>Now try Interacting with the Learning locker API</p>
 
 ``` php
 LearningLocker::stores()->get();
