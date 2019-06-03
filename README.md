@@ -1,4 +1,4 @@
-# Very short description of the package
+# LaraLocker = Laravel + Learning Locker
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ijeffro/laralocker.svg?style=flat-square)](https://packagist.org/packages/ijeffro/laralocker)
 [![Build Status](https://img.shields.io/travis/ijeffro/laralocker/master.svg?style=flat-square)](https://travis-ci.org/ijeffro/laralocker)
