@@ -23,6 +23,8 @@ LEARNING_LOCKER_KEY=91e2ed0716a19728dc5deff542b7987f59802f56
 LEARNING_LOCKER_SECRET=fa2d7e9850f401d6ae98e2805ccb404c6aaa8c45
 ```
 
+Run the install command to add the api routes...
+
 ```bash
 php artisan laralocker:install
 ```
@@ -31,13 +33,14 @@ php artisan laralocker:install
 You can call Learning Locker® in various different ways
 
 
-<p>Trying using the Learning Locker Facade to access the stores (LRS).</p>
-```php
+Trying using the Learning Locker Facade to access the stores (LRS).
+
+``` php
 use LearningLocker;
 ```
 
 
-<p>Now try Interacting with the Learning locker API</p>
+Now try Interacting with the Learning locker API.
 
 ``` php
 LearningLocker::stores()->get();
