@@ -67,7 +67,7 @@ class InstallCommand extends Command
         $this->info('Publishing the LaraLocker assets, database, and config files');
 
         // Publish only relevant resources on install
-        $tags = ['seeds'];
+        $tags = [];
 
         $this->call('vendor:publish', ['--provider' => LaraLockerServiceProvider::class, '--tag' => $tags]);
 
@@ -88,13 +88,11 @@ class InstallCommand extends Command
         if (false === strpos($routes_contents, 'LearningLocker::routes()')) {
             $filesystem->append(
                 base_path('routes/api.php'),
-                "\n\nRoute::group(['prefix' => config('learning_locker.route.prefix')], function () {\n    LearningLocker::routes();\n});\n"
+                "\n\nLearningLocker::routes();\n"
             );
         }
 
-        \Route::group(['prefix' => config('learning_locker.route.prefix')], function () {
-            \LearningLocker::routes();
-        });
+        \LearningLocker::routes();
 
         // $this->info('Seeding data into the database');
         // $this->seed('LaraLockerDatabaseSeeder');
