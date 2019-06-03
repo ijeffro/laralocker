@@ -1,0 +1,66 @@
+{
+    "name": "ijeffro/laralocker",
+    "description": "Laravel + Learning Locker || A Laravel Package for Learning Locker.",
+    "keywords": ["laravel", "learning locker", "xapi", "lrs"],
+    "license": "MIT",
+    "homepage": "https://ijeffro.github.io/laralocker/",
+    "support": {
+        "issues": "https://github.com/ijeffro/laralocker/issues",
+        "source": "https://github.com/ijeffro/laralocker"
+    },
+    "authors": [
+        {
+            "name": "Phil Graham",
+            "email": "phil.graham@ht2labs.com"
+        }
+    ],
+    "require": {
+        "php": ">=7",
+        "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+        "rusticisoftware/tincan": "^1.1",
+        "guzzlehttp/guzzle": "~6.3",
+        "lcobucci/jwt": "^3.2",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpcov": "~4.0|~5.0|~6.0",
+        "phpunit/phpunit": "~5.7.14|~6.1|~7.0|~8.0",
+        "laravel/framework": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+        "orchestra/testbench": "~3.0",
+        "guzzlehttp/guzzle": "~6.3",
+        "rusticisoftware/tincan": "^1.1",
+        "laravel/browser-kit-testing": "~2.0.0|~3.0.0|~4.0.0|~5.0.0|~5.1",
+        "orchestra/testbench-browser-kit": "~3.5|~3.6|~3.7|~3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ijeffro\\Laralocker\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ijeffro\\Laralocker\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ijeffro\\Laralocker\\Providers\\LaralockerServiceProvider"
+            ],
+            "aliases": {
+                "xAPI": "Ijeffro\\Laralocker\\Facades\\xAPI",
+                "Laralocker": "Ijeffro\\Laralocker\\Facades\\Laralocker",
+                "LearningLocker": "Ijeffro\\Laralocker\\Facades\\LearningLocker"
+            }
+        }
+    }
+}
