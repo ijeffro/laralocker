@@ -85,22 +85,20 @@ class InstallCommand extends Command
         $this->info('Adding LaraLocker routes to routes/api.php');
         $routes_contents = $filesystem->get(base_path('routes/api.php'));
 
-        if (false === strpos($routes_contents, 'LaraLocker::routes()')) {
+        if (false === strpos($routes_contents, 'LearningLocker::routes()')) {
             $filesystem->append(
                 base_path('routes/api.php'),
-                "\n\nRoute::group(['prefix' => config('laralocker.route.prefix')], function () {\n    LaraLocker::routes();\n});\n"
+                "\n\nRoute::group(['prefix' => config('learning_locker.route.prefix')], function () {\n    LearningLocker::routes();\n});\n"
             );
         }
 
-        \Route::group(['prefix' => config('laralocker.route.prefix')], function () {
-            \LaraLocker::routes();
+        \Route::group(['prefix' => config('learning_locker.route.prefix')], function () {
+            \LearningLocker::routes();
         });
 
-        $this->info('Seeding data into the database');
-        $this->seed('LaraLockerDatabaseSeeder');
+        // $this->info('Seeding data into the database');
+        // $this->seed('LaraLockerDatabaseSeeder');
 
-
-        $this->call('vendor:publish', ['--provider' => LaraLockerServiceProvider::class, '--tag' => ['config', 'LaraLocker_avatar']]);
 
 
         $this->info('Successfully installed LaraLocker! Enjoy');
