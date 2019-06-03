@@ -1,0 +1,2093 @@
+{
+	"info": {
+		"_postman_id": "c1d95fdc-66bf-444b-a2ab-bcec94d65c7a",
+		"name": "Laralocker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "List Clients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/clients/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"clients",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/clients/5c63fabd27cc1568a010ef54",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"clients",
+								"5c63fabd27cc1568a010ef54"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Client Postman Updated Title\",\n\t\"description\": \"Laralocker Client Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/clients/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"clients",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Dashboard Postman Updated Title\",\n\t\"description\": \"Laralocker Dashboard LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/dashboards/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"dashboards",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/clients/5cd5c83a2ea2b95e9a32db4a",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"clients",
+								"5cd5c83a2ea2b95e9a32db4a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboards",
+			"item": [
+				{
+					"name": "List Dashboards",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/dashboards/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"dashboards",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/dashboards/5ad6353dc4206a0f169fb061",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"dashboards",
+								"5ad6353dc4206a0f169fb061"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dashboard",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Dashboard Postman Updated Title\",\n\t\"description\": \"Laralocker Dashboard LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/dashboards/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"dashboards",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dashboard",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Dashboard Postman Updated Title\",\n\t\"description\": \"Laralocker Dashboard LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/dashboards/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"dashboards",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dashboard",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/dashboards/5cf4df95d90ca45c336b758e",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"dashboards",
+								"5cf4df95d90ca45c336b758e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Downloads",
+			"item": [
+				{
+					"name": "List Downloads",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/downloads/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"downloads",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Download",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/downloads/5c63fabd27cc1568a010ef54",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"downloads",
+								"5c63fabd27cc1568a010ef54"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Download",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Client Postman Updated Title\",\n\t\"description\": \"Laralocker Client Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/downloads/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"downloads",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Download",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Dashboard Postman Updated Title\",\n\t\"description\": \"Laralocker Dashboard LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/downloads/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"downloads",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Download",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/downloads/5cd5c83a2ea2b95e9a32db4a",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"downloads",
+								"5cd5c83a2ea2b95e9a32db4a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exports",
+			"item": [
+				{
+					"name": "List Exports",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/exports/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"exports",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Export",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/exports/5c63fabd27cc1568a010ef54",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"exports",
+								"5c63fabd27cc1568a010ef54"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Export",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Client Postman Updated Title\",\n\t\"description\": \"Laralocker Client Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/exports/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"exports",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Export",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Dashboard Postman Updated Title\",\n\t\"description\": \"Laralocker Dashboard LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/exports/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"exports",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Export",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/exports/5cd5c83a2ea2b95e9a32db4a",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"exports",
+								"5cd5c83a2ea2b95e9a32db4a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Journeys",
+			"item": [
+				{
+					"name": "List Journeys",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/journeys/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"journeys",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Journey",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/journeys/5c87a0e3db19893aa1805483",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"journeys",
+								"5c87a0e3db19893aa1805483"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Journey",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Journey Created by Postman\",\n\t\"description\": \"A Laralocker Journey Created by Postman\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/journeys/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"journeys",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Journey",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Laralocker Journey Update by Postman\",\n\t\"description\": \"A Laralocker Journey Updated by Postman\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/journeys/5c87a0e3db19893aa1805483",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"journeys",
+								"5c87a0e3db19893aa1805483"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Journey",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/journeys/5c87a0e3db19893aa1805483",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"journeys",
+								"5c87a0e3db19893aa1805483"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organisations",
+			"item": [
+				{
+					"name": "List Organisations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"scopes\": [\"all\"],\n    \"roles\": [\"59df32cde58ee84880280d03\"],\n    \"filter\": \"{}\",\n    \"samlId\": \"james@ht2labs.com\",\n    \"_id\": \"59034fabd74cdf135473cf7c\",\n    \"organisation\": \"58fe089370127e132704d168\",\n    \"oldFilter\": \"{}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/organisations/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"organisations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Organisation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/organisations/5aa6711c8ea12f33a1e94452",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"organisations",
+								"5aa6711c8ea12f33a1e94452"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Organisation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"verified\": false,\n    \"ownerOrganisation\": \"596f7975a8cc5e3e1e011065\",\n    \"email\": \"phil.graham@ht2labs.com\",\n    \"organisationSettings\": [\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        },\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        }\n    ],\n    \"name\": \"Philip Graham\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/organisations/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"organisations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Organisation",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"title\": \"Laralocker Postman Updated Title\",\n\t\"description\": \"Laralocker LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/organisations/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"organisations",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Organisation",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/organisations/5cf4d50a9d60b958ebf14728",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"organisations",
+								"5cf4d50a9d60b958ebf14728"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Personas",
+			"item": [
+				{
+					"name": "List Personas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"scopes\": [\"all\"],\n    \"roles\": [\"59df32cde58ee84880280d03\"],\n    \"filter\": \"{}\",\n    \"samlId\": \"james@ht2labs.com\",\n    \"_id\": \"59034fabd74cdf135473cf7c\",\n    \"organisation\": \"58fe089370127e132704d168\",\n    \"oldFilter\": \"{}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/personas/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"personas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Persona",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/personas/5aa6711c8ea12f33a1e94452",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"personas",
+								"5aa6711c8ea12f33a1e94452"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Persona",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"verified\": false,\n    \"ownerOrganisation\": \"596f7975a8cc5e3e1e011065\",\n    \"email\": \"phil.graham@ht2labs.com\",\n    \"organisationSettings\": [\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        },\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        }\n    ],\n    \"name\": \"Philip Graham\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/personas/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"personas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Persona",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"title\": \"Laralocker Postman Updated Title\",\n\t\"description\": \"Laralocker LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/personas/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"personas",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Persona",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/queries/5cf4d50a9d60b958ebf14728",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"queries",
+								"5cf4d50a9d60b958ebf14728"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A persona represents a person with many identifiers and attributes across systems.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "20c7b152-e3e7-4f86-a179-1a4695f3b34f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5ae289d-aaa3-4bcd-bcad-697bb316b3e2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Query",
+			"item": [
+				{
+					"name": "List Queries",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"scopes\": [\"all\"],\n    \"roles\": [\"59df32cde58ee84880280d03\"],\n    \"filter\": \"{}\",\n    \"samlId\": \"james@ht2labs.com\",\n    \"_id\": \"59034fabd74cdf135473cf7c\",\n    \"organisation\": \"58fe089370127e132704d168\",\n    \"oldFilter\": \"{}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/queries/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"queries",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Query",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/query/5aa6711c8ea12f33a1e94452",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"query",
+								"5aa6711c8ea12f33a1e94452"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Query",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"verified\": false,\n    \"ownerOrganisation\": \"596f7975a8cc5e3e1e011065\",\n    \"email\": \"phil.graham@ht2labs.com\",\n    \"organisationSettings\": [\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        },\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        }\n    ],\n    \"name\": \"Philip Graham\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/query/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"query",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Query",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"title\": \"Laralocker Postman Updated Title\",\n\t\"description\": \"Laralocker LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/query/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"query",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Query",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/query/5cf4d50a9d60b958ebf14728",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"query",
+								"5cf4d50a9d60b958ebf14728"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A persona represents a person with many identifiers and attributes across systems.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "20c7b152-e3e7-4f86-a179-1a4695f3b34f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5ae289d-aaa3-4bcd-bcad-697bb316b3e2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "List Roles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"scopes\": [\"all\"],\n    \"roles\": [\"59df32cde58ee84880280d03\"],\n    \"filter\": \"{}\",\n    \"samlId\": \"james@ht2labs.com\",\n    \"_id\": \"59034fabd74cdf135473cf7c\",\n    \"organisation\": \"58fe089370127e132704d168\",\n    \"oldFilter\": \"{}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/roles/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"roles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/role/5aa6711c8ea12f33a1e94452",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"role",
+								"5aa6711c8ea12f33a1e94452"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"verified\": false,\n    \"ownerOrganisation\": \"596f7975a8cc5e3e1e011065\",\n    \"email\": \"phil.graham@ht2labs.com\",\n    \"organisationSettings\": [\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        },\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        }\n    ],\n    \"name\": \"Philip Graham\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/role/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"role",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Role",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"title\": \"Laralocker Postman Updated Title\",\n\t\"description\": \"Laralocker LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/role/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"role",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/role/5cf4d50a9d60b958ebf14728",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"role",
+								"5cf4d50a9d60b958ebf14728"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A persona represents a person with many identifiers and attributes across systems.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "20c7b152-e3e7-4f86-a179-1a4695f3b34f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5ae289d-aaa3-4bcd-bcad-697bb316b3e2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Statements",
+			"item": [
+				{
+					"name": "List Statements",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"scopes\": [\"all\"],\n    \"roles\": [\"59df32cde58ee84880280d03\"],\n    \"filter\": \"{}\",\n    \"samlId\": \"james@ht2labs.com\",\n    \"_id\": \"59034fabd74cdf135473cf7c\",\n    \"organisation\": \"58fe089370127e132704d168\",\n    \"oldFilter\": \"{}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/roles/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"roles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Statement",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/role/5aa6711c8ea12f33a1e94452",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"role",
+								"5aa6711c8ea12f33a1e94452"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Statement",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"verified\": false,\n    \"ownerOrganisation\": \"596f7975a8cc5e3e1e011065\",\n    \"email\": \"phil.graham@ht2labs.com\",\n    \"organisationSettings\": [\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        },\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        }\n    ],\n    \"name\": \"Philip Graham\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/role/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"role",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Statement",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"title\": \"Laralocker Postman Updated Title\",\n\t\"description\": \"Laralocker LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/role/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"role",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Statement",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/role/5cf4d50a9d60b958ebf14728",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"role",
+								"5cf4d50a9d60b958ebf14728"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A persona represents a person with many identifiers and attributes across systems.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "20c7b152-e3e7-4f86-a179-1a4695f3b34f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5ae289d-aaa3-4bcd-bcad-697bb316b3e2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Stores (LRS)",
+			"item": [
+				{
+					"name": "List Stores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/stores/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"stores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Store",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/stores/5c87a0e3db19893aa1805483",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"stores",
+								"5c87a0e3db19893aa1805483"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"title\": \"Laralocker Postman Created by Postman\",\n\t\"description\": \"Laralocker LRS Created by Postman\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/stores/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"stores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Store",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"title\": \"Laralocker Postman Updated Title\",\n\t\"description\": \"Laralocker LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/stores/5c87a0e3db19893aa1805483",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"stores",
+								"5c87a0e3db19893aa1805483"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Store",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/stores/5c87a0e3db19893aa1805483",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"stores",
+								"5c87a0e3db19893aa1805483"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"scopes\": [\"all\"],\n    \"roles\": [\"59df32cde58ee84880280d03\"],\n    \"filter\": \"{}\",\n    \"samlId\": \"james@ht2labs.com\",\n    \"_id\": \"59034fabd74cdf135473cf7c\",\n    \"organisation\": \"58fe089370127e132704d168\",\n    \"oldFilter\": \"{}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/users/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/users/5aa6711c8ea12f33a1e94452",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"users",
+								"5aa6711c8ea12f33a1e94452"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"verified\": false,\n    \"ownerOrganisation\": \"596f7975a8cc5e3e1e011065\",\n    \"email\": \"phil.graham@ht2labs.com\",\n    \"organisationSettings\": [\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        },\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        }\n    ],\n    \"name\": \"Philip Graham\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/users/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"title\": \"Laralocker Postman Updated Title\",\n\t\"description\": \"Laralocker LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/stores/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"stores",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/stores/5cf4d50a9d60b958ebf14728",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"stores",
+								"5cf4d50a9d60b958ebf14728"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Visualisations",
+			"item": [
+				{
+					"name": "List Visualisations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"scopes\": [\"all\"],\n    \"roles\": [\"59df32cde58ee84880280d03\"],\n    \"filter\": \"{}\",\n    \"samlId\": \"james@ht2labs.com\",\n    \"_id\": \"59034fabd74cdf135473cf7c\",\n    \"organisation\": \"58fe089370127e132704d168\",\n    \"oldFilter\": \"{}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/visualisations/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"visualisations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Visualisation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/visualisation/5aa6711c8ea12f33a1e94452",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"visualisation",
+								"5aa6711c8ea12f33a1e94452"
+							]
+						},
+						"description": "Get a Learning Locker Record Store (LRS) by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Visualisation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"verified\": false,\n    \"ownerOrganisation\": \"596f7975a8cc5e3e1e011065\",\n    \"email\": \"phil.graham@ht2labs.com\",\n    \"organisationSettings\": [\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        },\n        {\n            \"scopes\": [],\n            \"roles\": [\"59df32cde58ee84880280c9e\"],\n            \"filter\": \"{}\",\n            \"samlId\": \"phil.graham@ht2labs.com\",\n            \"_id\": \"5cb88596c71bc96ffb3fbf6f\",\n            \"organisation\": \"5845a98ef6bbec0f60f1743c\",\n            \"oldFilter\": \"{}\"\n        }\n    ],\n    \"name\": \"Philip Graham\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/visualisation/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"visualisation",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Visualisation",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"title\": \"Laralocker Postman Updated Title\",\n\t\"description\": \"Laralocker LRS Updated Description\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/visualisation/5cf45a209d60b958ebf14122",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"visualisation",
+								"5cf45a209d60b958ebf14122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Visualisation",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/laralocker/visualisation/5cf4d50a9d60b958ebf14728",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"laralocker",
+								"visualisation",
+								"5cf4d50a9d60b958ebf14728"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Aggregation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"statement\": {\n    \"id\": \"dfb7218c-0fc9-4dfc-9524-d497097de027\",\n    \"actor\": { \"objectType\": \"Agent\", \"mbox\": \"mailto:test@example.org\" },\n    \"verb\": { \"id\": \"http://www.example.org/verb\" },\n    \"object\": { \"objectType\": \"Activity\", \"id\": \"http://www.example.org/activity\" },\n    \"version\": \"1.0.3\",\n    \"authority\": { \"objectType\": \"Agent\", \"mbox\": \"mailto:authority@example.org\" },\n    \"timestamp\": \"2017-09-05T12:45:31+00:00\",\n    \"stored\": \"2017-09-05T12:45:31+00:00\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/laralocker/clients/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"laralocker",
+						"clients",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
