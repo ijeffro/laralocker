@@ -5,7 +5,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/ijeffro/laralocker.svg?style=flat-square)](https://scrutinizer-ci.com/g/ijeffro/laralocker)
 [![Total Downloads](https://img.shields.io/packagist/dt/ijeffro/laralocker.svg?style=flat-square)](https://packagist.org/packages/ijeffro/laralocker)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+LaraLocker || A Laravel package for Learning Locker® is the most installed Learning Record Store in the world. 
 
 ## Installation
 
@@ -15,17 +15,56 @@ You can install the package via composer:
 composer require ijeffro/laralocker
 ```
 
+Add the envirnoment variables to laravel's .env
+
+```env
+LEARNING_LOCKER_URL=https://saas.learninglocker.net
+LEARNING_LOCKER_KEY=91e2ed0716a19728dc5deff542b7987f59802f56
+LEARNING_LOCKER_SECRET=fa2d7e9850f401d6ae98e2805ccb404c6aaa8c45
+```
+
+```bash
+php artisan laralocker:install
+```
 ## Usage
 
+You can call Learning Locker® in various different ways
+
+
+Trying using the Learning Locker Facade to access the stores (LRS).
+
 ``` php
-// Usage description here
+LearningLocker::stores()->get();
 ```
 
-### Testing
 
-``` bash
-composer test
+Get Learning Locker stores by store id (_id).
+
+``` php
+LearningLocker::store($id)->get();
 ```
+
+
+Create a new store in Learning Locker.
+
+``` php
+LearningLocker::store()->create($data);
+```
+
+
+Update a Learning Locker store by id (_id)
+
+``` php
+LearningLocker::store($id)->update($data);
+```
+
+
+Delete a Learning Locker store
+
+``` php
+LearningLocker::store($id)->delete();
+```
+
 
 ### Changelog
 
@@ -47,7 +86,3 @@ If you discover any security related issues, please email phil.graham@ht2labs.co
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
