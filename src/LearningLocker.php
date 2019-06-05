@@ -2,6 +2,7 @@
 
 namespace Ijeffro\Laralocker;
 
+use Ijeffro\Laralocker\LearningLocker\Connection;
 use Ijeffro\Laralocker\LearningLocker\Roles\RoleHandler;
 use Ijeffro\Laralocker\LearningLocker\Users\UserHandler;
 use Ijeffro\Laralocker\LearningLocker\Stores\StoreHandler;
@@ -19,6 +20,7 @@ use Ijeffro\Laralocker\LearningLocker\Visualisations\VisualisationHandler;
 class LearningLocker {
 
     public $api;
+    public $connection;
     public $aggregation;
 
     public $user;
@@ -469,6 +471,19 @@ class LearningLocker {
                     "Please supply an api model; user, organisation, store, etc. You can refer to the learning locker api documents for more details"
                 );
         }
+    }
+
+    /**
+     * Learning Locker API: Connect
+     *
+     * @return Connection
+     */
+    public function connect($key, $secret, $url)
+    {
+        if ($this->connection) return $this;
+
+        $this->connection = new Connection($key, $secret, $url);
+        return $this->connect($key, $secret, $url);
     }
 
 }

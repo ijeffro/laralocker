@@ -25,17 +25,18 @@ class Connection {
   protected $headers;
   protected $settings;
   protected $endpoint;
+  protected $connection;
 
-  public function __construct($org = null, $settings = null) {
+  public function __construct($key = null, $secret = null, $url = null) {
     // $this->org = $org;
     // $this->settings = $settings;
     // $this->endpoint = $settings[LearningLocker::URL] ?? null;
     // $this->key = $settings[LearningLocker::KEY] ?? null;
     // $this->secret = $settings[LearningLocker::SECRET] ?? null;
 
-    $this->url = Config::get('laralocker.learning-locker.api.url') ?? null;
-    $this->key = Config::get('laralocker.learning-locker.api.key') ?? null;
-    $this->secret = Config::get('laralocker.learning-locker.api.secret') ?? null;
+    $this->url = Config::get('laralocker.learning-locker.api.url') ? Config::get('laralocker.learning-locker.api.url') : $url;
+    $this->key = Config::get('laralocker.learning-locker.api.key') ? Config::get('laralocker.learning-locker.api.key') : $key;
+    $this->secret = Config::get('laralocker.learning-locker.api.secret') ? Config::get('laralocker.learning-locker.api.secret') : $secret;
 
     $this->headers = [
         'Accept' => 'application/json',

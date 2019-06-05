@@ -67,12 +67,12 @@ class InstallCommand extends Command
         $this->info('Publishing the LaraLocker assets, database, and config files');
 
         // Publish only relevant resources on install
-        $tags = [];
+        $tags = ['config'];
 
         $this->call('vendor:publish', ['--provider' => LaraLockerServiceProvider::class, '--tag' => $tags]);
 
-        $this->info('Migrating the database tables into your application');
-        $this->call('migrate', ['--force' => $this->option('force')]);
+        // $this->info('Migrating the database tables into your application');
+        // $this->call('migrate', ['--force' => $this->option('force')]);
 
         $this->info('Dumping the autoloaded files and reloading all new files');
 
@@ -86,18 +86,13 @@ class InstallCommand extends Command
         $routes_contents = $filesystem->get(base_path('routes/api.php'));
 
         if (false === strpos($routes_contents, 'LearningLocker::routes()')) {
-            $filesystem->append(
-                base_path('routes/api.php'),
-                "\n\nLearningLocker::routes();\n"
-            );
+            $filesystem->append(base_path('routes/api.php'), "\n\nLearningLocker::routes();\n");
         }
 
         \LearningLocker::routes();
 
         // $this->info('Seeding data into the database');
         // $this->seed('LaraLockerDatabaseSeeder');
-
-
 
         $this->info('Successfully installed LaraLocker! Enjoy');
     }
