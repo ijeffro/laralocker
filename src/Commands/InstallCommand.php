@@ -87,22 +87,30 @@ class InstallCommand extends Command
         // $this->info('Seeding data into the database');
         // $this->seed('LaraLockerDatabaseSeeder');
 
-        $this->info('Successfully installed LaraLocker! Enjoy');
+
+
+        $this->call('vendor:publish', ['--provider' => LaraLockerServiceProvider::class, '--tag' => $tags]);
+
+        $this->info('Successfully installed LaraLocker! Enjoy Learning Locker®');
     }
 
     public function routing(Filesystem $filesystem)
     {
 
-        if ($this->confirm('Do you wish to continue?')) {
+        $routes_contents = $filesystem->get(base_path('routes/api.php'));
 
-            $this->info('Adding LaraLocker routes to routes/api.php');
-            $routes_contents = $filesystem->get(base_path('routes/api.php'));
+        if (false === strpos($routes_contents, 'LearningLocker::routes()')) {
 
-            if (false === strpos($routes_contents, 'LearningLocker::routes()')) {
-                $filesystem->append(base_path('routes/api.php'), "\n\nLearningLocker::routes();\n");
+            if ($this->confirm('Do you wish to continue?')) {
+
+                $this->info('Adding LaraLocker routes to routes/api.php');
+
+                if (false === strpos($routes_contents, 'LearningLocker::routes()')) {
+                    $filesystem->append(base_path('routes/api.php'), "\n\nLearningLocker::routes();\n");
+                }
+
+                \LearningLocker::routes();
             }
-
-            \LearningLocker::routes();
         }
     }
 }
