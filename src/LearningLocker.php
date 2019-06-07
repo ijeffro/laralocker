@@ -16,6 +16,8 @@ use Ijeffro\Laralocker\LearningLocker\Statements\StatementHandler;
 use Ijeffro\Laralocker\LearningLocker\Dashboards\DashboardHandler;
 use Ijeffro\Laralocker\LearningLocker\Organisation\OrganisationHandler;
 use Ijeffro\Laralocker\LearningLocker\Visualisations\VisualisationHandler;
+use Ijeffro\Laralocker\LearningLocker\JourneyProgress\JourneyProgressHandler;
+use Ijeffro\Laralocker\LearningLocker\StatementForwarding\StatementForwardingHandler;
 
 class LearningLocker {
 
@@ -286,6 +288,20 @@ class LearningLocker {
 
         $this->journey = new JourneyHandler($id ? $id : null);
         return $this->journey($id ? $id : null);
+    }
+
+    /**
+     * Learning Locker API: Journey
+     *
+     * @param $id
+     * @return JourneyProgressHandler
+     */
+    public function journeyProgress($id = null)
+    {
+        if ($this->journey_progress) return $this->journey_progress;
+
+        $this->journey_progress = new JourneyProgressHandler($id ? $id : null);
+        return $this->journeyProgress($id ? $id : null);
     }
 
     /**
