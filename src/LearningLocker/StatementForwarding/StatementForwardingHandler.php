@@ -1,19 +1,15 @@
 <?php
 
-namespace Ijeffro\Laralocker\LearningLocker\Statements;
-
+namespace Ijeffro\Laralocker\LearningLocker\StatementForwarding;
 
 use Ijeffro\Laralocker\LearningLocker\API\APIHandler;
-use Ijeffro\Laralocker\LearningLocker\StatementForwarding\StatementForwardingHandler;
 
-class StatementHandler extends APIHandler {
+class StatementForwardingHandler extends APIHandler {
 
-    private $statements = '/statement';
+    private $statement_forwarding = '/statementforwarding';
     private $api = '/api';
     private $v1 = '/v1';
     private $v2 = '/v2';
-
-    public $statement_forwarding;
 
     protected $headers = [
       'Content-Type' => 'application/json'
@@ -24,18 +20,6 @@ class StatementHandler extends APIHandler {
         $this->id = $id;
     }
 
-    /**
-     * Learning Locker API: Clients
-     *
-     * @return ClientHandler
-     */
-    public function forwarding($id = null)
-    {
-        if ($this->statement_forwarding) return $this->statement_forwarding;
-
-        $this->statement_forwarding = new StatementForwardingHandler($id ? $id : null);
-        return $this->forwarding($id ? $id : null);
-    }
 
     /**
      * Learning Locker: Request Organisation Details
@@ -44,7 +28,7 @@ class StatementHandler extends APIHandler {
      */
     public function get() {
         try {
-            $url = $this->url . $this->api . $this->statements . '/' . $this->id ?? $this->id;
+            $url = $this->url . $this->api . $this->v2 . $this->statement_forwarding . '/' . $this->id ?? $this->id;
             $response = $this->request($url);
             return $response;
         } catch (Exception $e) {
@@ -59,8 +43,23 @@ class StatementHandler extends APIHandler {
      */
     public function update($data) {
         try {
-            $url = $this->url . $this->api . $this->v2 . $this->statements . '/' . $this->id ?? $this->id;
+            $url = $this->url . $this->api . $this->v2 . $this->statement_forwarding . '/' . $this->id ?? $this->id;
             $response = $this->save($url, $data);
+            return $response;
+        } catch (Exception $e) {
+            return $e;
+        }
+    }
+
+    /**
+     * Learning Locker: Request Organisation Details
+     *
+     * @return  $response
+     */
+    public function create($data = null) {
+        try {
+            $url = $this->url . $this->api . $this->v2 . $this->statement_forwarding;
+            $response = $this->make($url, $data);
             return $response;
         } catch (Exception $e) {
             return $e;

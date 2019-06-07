@@ -85,17 +85,37 @@ class xAPI extends xAPIHandler
         return $this;
     }
 
+    public function scored($result)
+    {
+        $this->result = $result;
+        return $this;
+    }
+
+    public function context($context)
+    {
+        $this->context = $context;
+        return $this;
+    }
+
     public function make()
     {
         $this->timestamp = Carbon::now();
 
+        // dd(
+        //     $this->actor,
+        //     $this->verb,
+        //     $this->object,
+        //     $this->timestamp,
+        //     $this->context ? $this->context : null,
+        //     $this->result ? $this->result : null
+        // );
         $this->statement = $this->makeStatement(
             $this->actor,
             $this->verb,
             $this->object,
-            $this->timestamp
-            // $context,
-            // $result
+            $this->timestamp,
+            isset($this->context) ? $this->context : null,
+            isset($this->result) ? $this->result : null
         );
 
         $this->make = [];

@@ -17,9 +17,11 @@ class APIHandler extends Connection {
                 'auth' => $this->auth(),
                 'headers' => $this->headers()
             ]);
+            if ( $response->getStatusCode() === 404 )
+                throw new RequestException(404);
 
             return $response->getBody()->getContents();
-        } catch (Exception $e) {
+        } catch (RequestException $e) {
             return $e;
         }
     }
@@ -33,6 +35,8 @@ class APIHandler extends Connection {
                 'headers' => $this->headers(),
                 'body' => $data
             ]);
+            if ( $response->getStatusCode() === 404 )
+                throw new RequestException(404);
 
             return $response->getBody()->getContents();
         } catch (RequestException $e) {
@@ -47,6 +51,8 @@ class APIHandler extends Connection {
                 'auth' => $this->auth(),
                 'headers' => $this->headers()
             ]);
+            if ( $response->getStatusCode() === 404 )
+                throw new RequestException(404);
 
             return $response->getBody()->getContents();
         } catch (RequestException $e) {

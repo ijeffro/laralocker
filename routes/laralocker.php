@@ -15,6 +15,11 @@ Route::group(['prefix' => 'laralocker'], function () {
 
     $controller_namespace = "\Ijeffro\Laralocker\Http\Controllers\\";
 
+
+
+    // Aggregation
+    // Route::post('aggregation', $controller_namespace . 'AggregationController@save')->name('learning_locker.post.aggregation');
+
     // Client
     Route::get('clients', $controller_namespace . 'ClientController@index')->name('learning_locker.list.clients');
     Route::get('clients/{id}', $controller_namespace . 'ClientController@show')->name('learning_locker.get.client');
@@ -58,7 +63,11 @@ Route::group(['prefix' => 'laralocker'], function () {
     Route::delete('journeys/{id}', $controller_namespace . 'JourneyController@destroy')->name('learning_locker.delete.journey');
 
     // Journeys Progress
-    // ...
+    Route::get('journeyprogress', $controller_namespace . 'JourneyProgressController@index')->name('learning_locker.list.journey.progress');
+    Route::get('journeyprogress/{id}', $controller_namespace . 'JourneyProgressController@show')->name('learning_locker.get.journey.progress');
+    Route::post('journeyprogress', $controller_namespace . 'JourneyProgressController@save')->name('learning_locker.create.journey.progress');
+    Route::patch('journeyprogress/{id}', $controller_namespace . 'JourneyProgressController@update')->name('learning_locker.update.journeyprogress');
+    Route::delete('journeyprogress/{id}', $controller_namespace . 'JourneyProgressController@destroy')->name('learning_locker.delete.journey.progress');
 
     // Organisations
     Route::get('organisations', $controller_namespace . 'OrganisationController@index')->name('learning_locker.list.organisations');
@@ -95,14 +104,23 @@ Route::group(['prefix' => 'laralocker'], function () {
     Route::delete('roles/{id}', $controller_namespace . 'RoleController@destroy')->name('learning_locker.delete.role');
 
     // Statements
-    Route::get('statements', $controller_namespace . 'StetementController@index')->name('learning_locker.list.statements');
-    Route::get('statements/{id}', $controller_namespace . 'StetementController@show')->name('learning_locker.get.statement');
-    Route::post('statements', $controller_namespace . 'StetementController@save')->name('learning_locker.create.statement');
-    Route::patch('statements/{id}', $controller_namespace . 'StetementController@update')->name('learning_locker.update.statement');
-    Route::delete('statements/{id}', $controller_namespace . 'StetementController@destroy')->name('learning_locker.delete.statement');
+    Route::get('statements', $controller_namespace . 'StatementController@index')->name('learning_locker.list.statements');
+    Route::get('statements/{id}', $controller_namespace . 'StatementController@show')->name('learning_locker.get.statement');
+    Route::post('statements', $controller_namespace . 'StatementController@save')->name('learning_locker.create.statement');
+    Route::patch('statements/{id}', $controller_namespace . 'StatementController@update')->name('learning_locker.update.statement');
+
+    // Completion
+    Route::post('completion', $controller_namespace . 'CompletionController@save')->name('receive.learning_locker.completion');
+
+    // Statement Deletion
+    Route::delete('statement/{id}', $controller_namespace . 'StatementController@destroy')->name('learning_locker.delete.statement');
 
     // Statement Forwarding
-    // ...
+    Route::get('statementforwarding', $controller_namespace . 'StatementForwardingController@index')->name('learning_locker.list.statement.forward');
+    Route::get('statementforwarding/{id}', $controller_namespace . 'StatementForwardingController@show')->name('learning_locker.get.statement.forward');
+    Route::post('statementforwarding', $controller_namespace . 'StatementForwardingController@save')->name('learning_locker.create.statement.forward');
+    Route::patch('statementforwarding/{id}', $controller_namespace . 'StatementForwardingController@update')->name('learning_locker.update.statement.forward');
+    Route::delete('statementforwarding/{id}', $controller_namespace . 'StatementForwardingController@destroy')->name('learning_locker.delete.statement.forward');
 
     // Stores
     Route::get('stores', $controller_namespace . 'StoreController@index')->name('learning_locker.list.stores');

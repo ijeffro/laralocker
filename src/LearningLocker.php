@@ -14,6 +14,7 @@ use Ijeffro\Laralocker\LearningLocker\Journeys\JourneyHandler;
 use Ijeffro\Laralocker\LearningLocker\Downloads\DownloadHandler;
 use Ijeffro\Laralocker\LearningLocker\Statements\StatementHandler;
 use Ijeffro\Laralocker\LearningLocker\Dashboards\DashboardHandler;
+use Ijeffro\Laralocker\LearningLocker\Aggregation\AggregationHandler;
 use Ijeffro\Laralocker\LearningLocker\Organisation\OrganisationHandler;
 use Ijeffro\Laralocker\LearningLocker\Visualisations\VisualisationHandler;
 use Ijeffro\Laralocker\LearningLocker\JourneyProgress\JourneyProgressHandler;
@@ -22,47 +23,54 @@ use Ijeffro\Laralocker\LearningLocker\StatementForwarding\StatementForwardingHan
 class LearningLocker {
 
     public $api;
-    public $connection;
-    public $aggregation;
-
     public $user;
-    public $users;
-
     public $role;
+    public $users;
     public $roles;
-
     public $store;
-    public $stores;
-
     public $query;
-    public $queries;
-
+    public $stores;
     public $export;
-    public $exports;
-
     public $client;
+    public $exports;
     public $clients;
-
+    public $queries;
     public $persona;
-    public $personas;
-
     public $journey;
+    public $personas;
     public $journeys;
-
     public $download;
     public $downloads;
-
     public $dashboard;
-    public $dashboards;
-
     public $statement;
+    public $dashboards;
     public $statements;
-
+    public $connection;
+    public $aggregation;
     public $organisation;
     public $organisations;
-
     public $visualisation;
     public $visualisations;
+    public $journey_progress;
+    public $statement_forwarding;
+
+    public function __construct($key = null, $secret = null, $url = null)
+    {
+
+    }
+
+    /**
+     * Learning Locker API: Connect
+     *
+     * @return Connection
+     */
+    public function connect($key, $secret, $url)
+    {
+        if ($this->connection) return $this;
+
+        $this->connection = new Connection($key, $secret, $url);
+        return $this->connect($key, $secret, $url);
+    }
 
     /**
      * Learning Locker API: Clients
@@ -294,7 +302,7 @@ class LearningLocker {
      * Learning Locker API: Journey
      *
      * @param $id
-     * @return JourneyProgressHandler
+     * @return JourneyHandler
      */
     public function journeyProgress($id = null)
     {
@@ -382,6 +390,19 @@ class LearningLocker {
 
         $this->statement = new StatementHandler($id ?? $id);
         return $this->statement($id ?? $id);
+    }
+
+    /**
+     * Learning Locker API: Statements
+     *
+     * @return StatementHandler
+     */
+    public function statementForwarding($id = null)
+    {
+        if ($this->statement_forwarding) return $this->statement_forwarding;
+
+        $this->statement_forwarding = new StatementForwardingHandler($id ?? $id);
+        return $this->statementForwarding($id ?? $id);
     }
 
     /**
@@ -483,23 +504,11 @@ class LearningLocker {
                 $this->visualisations();
                 break;
             default:
-                return error(
-                    "Please supply an api model; user, organisation, store, etc. You can refer to the learning locker api documents for more details"
-                );
+
+            $message = ["error" => "Please supply a Learning Locker model", "docs" => "http://docs.learninglocker.net/"];
+
+            return $message->toJosn();
         }
-    }
-
-    /**
-     * Learning Locker API: Connect
-     *
-     * @return Connection
-     */
-    public function connect($key, $secret, $url)
-    {
-        if ($this->connection) return $this;
-
-        $this->connection = new Connection($key, $secret, $url);
-        return $this->connect($key, $secret, $url);
     }
 
 }
