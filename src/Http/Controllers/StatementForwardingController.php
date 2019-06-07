@@ -5,7 +5,7 @@ namespace Ijeffro\Laralocker\Http\Controllers;
 use Illuminate\Http\Request;
 use Ijeffro\Laralocker\Facades\LearningLocker;
 
-class AggregationController extends Controller
+class StatementForwardingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AggregationController extends Controller
      */
     public function index()
     {
-        return LearningLocker::aggregation()->get();
+        return LearningLocker::statement()->forwarding()->get();
     }
 
     /**
@@ -25,7 +25,7 @@ class AggregationController extends Controller
      */
     public function show($id)
     {
-        return LearningLocker::aggregation($id)->get();
+        return LearningLocker::statement()->forwarding($id)->get();
     }
 
     /**
@@ -37,7 +37,7 @@ class AggregationController extends Controller
     public function save(Request $request)
     {
         $data = request()->all();
-        return LearningLocker::aggregation()->create($data);
+        return LearningLocker::statement()->forwarding()->create($data);
     }
 
     /**
@@ -50,7 +50,7 @@ class AggregationController extends Controller
     public function update(Request $request, $id)
     {
         $data = request()->all();
-        return LearningLocker::aggregation($id)->update($data);
+        return LearningLocker::statement()->forwarding($id)->update($data);
     }
 
     /**
@@ -61,7 +61,8 @@ class AggregationController extends Controller
      */
     public function destroy($id)
     {
-        return LearningLocker::aggregation($id)->delete();
+        return LearningLocker::statement()->forwarding($id)->delete();
     }
+
 
 }

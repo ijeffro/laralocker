@@ -1,13 +1,13 @@
 <?php
 
-namespace Ijeffro\Laralocker\LearningLocker\Dashboards;
+namespace Ijeffro\Laralocker\LearningLocker\Aggregation;
 
 use Ijeffro\Laralocker\LearningLocker\API\APIHandler;
 
-class AggregationHandler extends APIHandler implements AggregationInterface {
+class AggregationHandler extends APIHandler {
 
 
-    private $dashboard = '/aggregation';
+    private $aggregation = '/statements/aggregate';
     private $api = '/api';
     private $v1 = '/v1';
     private $v2 = '/v2';
@@ -28,7 +28,7 @@ class AggregationHandler extends APIHandler implements AggregationInterface {
      */
     public function get() {
         try {
-            $url = $this->url . $this->api . $this->v2 . $this->dashboard;
+            $url = $this->url . $this->api . $this->v2 . $this->aggregation;
             $response = $this->request($url);
             return $response;
         } catch (Exception $e) {
@@ -44,7 +44,7 @@ class AggregationHandler extends APIHandler implements AggregationInterface {
      */
     public function update($data) {
         try {
-            $url = $this->url . $this->api . $this->v2 . $this->dashboard . '/' . $this->id ?? $this->id;
+            $url = $this->url . $this->api . $this->v2 . $this->aggregation . '/' . $this->id ?? $this->id;
             $response = $this->save($url, $data);
             return $response;
         } catch (Exception $e) {
@@ -60,7 +60,7 @@ class AggregationHandler extends APIHandler implements AggregationInterface {
      */
     public function delete() {
         try {
-            $url = $this->url . $this->api . $this->v2 . $this->dashboard . '/' . $this->id;
+            $url = $this->url . $this->api . $this->v2 . $this->aggregation . '/' . $this->id;
             $response = $this->destroy($url);
             return $response;
         } catch (Exception $e) {
@@ -76,7 +76,7 @@ class AggregationHandler extends APIHandler implements AggregationInterface {
      */
     public function create($data = null) {
         try {
-            $url = $this->url . $this->api . $this->v2 . $this->dashboard;
+            $url = $this->url . $this->api . $this->aggregation;
             $response = $this->make($url, $data);
             return $response;
         } catch (Exception $e) {

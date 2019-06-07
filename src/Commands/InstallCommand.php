@@ -82,18 +82,27 @@ class InstallCommand extends Command
         $process->setTimeout(null); // Setting timeout to null to prevent installation from stopping at a certain point in time
         $process->setWorkingDirectory(base_path())->run();
 
-        $this->info('Adding LaraLocker routes to routes/api.php');
-        $routes_contents = $filesystem->get(base_path('routes/api.php'));
-
-        if (false === strpos($routes_contents, 'LearningLocker::routes()')) {
-            $filesystem->append(base_path('routes/api.php'), "\n\nLearningLocker::routes();\n");
-        }
-
-        \LearningLocker::routes();
+        $this->routing($filesystem);
 
         // $this->info('Seeding data into the database');
         // $this->seed('LaraLockerDatabaseSeeder');
 
         $this->info('Successfully installed LaraLocker! Enjoy');
+    }
+
+    public function routing(Filesystem $filesystem)
+    {
+
+        if ($this->confirm('Do you wish to continue?')) {
+
+            $this->info('Adding LaraLocker routes to routes/api.php');
+            $routes_contents = $filesystem->get(base_path('routes/api.php'));
+
+            if (false === strpos($routes_contents, 'LearningLocker::routes()')) {
+                $filesystem->append(base_path('routes/api.php'), "\n\nLearningLocker::routes();\n");
+            }
+
+            \LearningLocker::routes();
+        }
     }
 }

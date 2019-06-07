@@ -1,18 +1,15 @@
 <?php
 
-namespace Ijeffro\Laralocker\LearningLocker\Journeys;
+namespace Ijeffro\Laralocker\LearningLocker\JourneyProgress;
 
 use Ijeffro\Laralocker\LearningLocker\API\APIHandler;
-use Ijeffro\Laralocker\LearningLocker\JourneyProgress\JourneyProgressHandler;
 
-class JourneyHandler extends APIHandler {
+class JourneyProgressHandler extends APIHandler {
 
-    private $journey = '/journey';
+    private $journey_progress = '/journeyProgress';
     private $api = '/api';
     private $v1 = '/v1';
     private $v2 = '/v2';
-
-    public $journey_progress;
 
     protected $headers = [
       'Content-Type' => 'application/json'
@@ -24,26 +21,13 @@ class JourneyHandler extends APIHandler {
     }
 
     /**
-     * Learning Locker API: Clients
-     *
-     * @return ClientHandler
-     */
-    public function progress($id = null)
-    {
-        if ($this->journey_progress) return $this->journey_progress;
-
-        $this->journey_progress = new JourneyProgressHandler($id ? $id : null);
-        return $this->progress($id ? $id : null);
-    }
-
-    /**
      * Learning Locker: Request Organisation Details
      *
      * @return  $response
      */
     public function get() {
         try {
-            $url = $this->url . $this->api . $this->v2 . $this->journey;
+            $url = $this->url . $this->api . $this->v2 . $this->journey_progress . '/' . $this->id ?? $this->id;
             $response = $this->request($url);
             return $response;
         } catch (Exception $e) {
@@ -58,23 +42,8 @@ class JourneyHandler extends APIHandler {
      */
     public function update($data) {
         try {
-            $url = $this->url . $this->api . $this->v2 . $this->journey . '/' . $this->id ?? $this->id;
+            $url = $this->url . $this->api . $this->v2 . $this->journey_progress . '/' . $this->id ?? $this->id;
             $response = $this->save($url, $data);
-            return $response;
-        } catch (Exception $e) {
-            return $e;
-        }
-    }
-
-    /**
-     * Learning Locker: Request Organisation Details
-     *
-     * @return  $response
-     */
-    public function delete() {
-        try {
-            $url = $this->url . $this->api . $this->v2 . $this->journey . '/' . $this->id;
-            $response = $this->destroy($url);
             return $response;
         } catch (Exception $e) {
             return $e;
@@ -88,12 +57,11 @@ class JourneyHandler extends APIHandler {
      */
     public function create($data = null) {
         try {
-            $url = $this->url . $this->api . $this->v2 . $this->journey;
+            $url = $this->url . $this->api . $this->v2 . $this->journey_progress;
             $response = $this->make($url, $data);
             return $response;
         } catch (Exception $e) {
             return $e;
         }
     }
-
 }
