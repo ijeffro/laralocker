@@ -4,9 +4,8 @@ namespace Ijeffro\LaraLocker\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Intervention\Image\ImageServiceProviderLaravel5;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Console\Input\InputOption;
 use Ijeffro\LaraLocker\LaraLockerServiceProvider;
 
 class InstallCommand extends Command
@@ -26,7 +25,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Install LaraLocker || The Learning Locker package for Laravel';
+    protected $description = 'Install LaraLocker - The Learning Locker® package for Laravel';
 
     protected function getOptions()
     {
@@ -64,21 +63,16 @@ class InstallCommand extends Command
      */
     public function handle(Filesystem $filesystem)
     {
-        $this->info('Publishing the LaraLocker assets, database, and config files');
-
-        // Publish only relevant resources on install
-        $tags = ['config'];
-
-        $this->call('vendor:publish', ['--provider' => LaraLockerServiceProvider::class, '--tag' => $tags]);
+        $this->info('Installing LaraLocker...');
 
         // $this->info('Migrating the database tables into your application');
         // $this->call('migrate', ['--force' => $this->option('force')]);
 
-        $this->info('Dumping the autoloaded files and reloading all new files');
+        // $this->info('Dumping the autoloaded files and reloading all new files');
 
         $composer = $this->findComposer();
-
         $process = new Process($composer.' dump-autoload');
+
         $process->setTimeout(null); // Setting timeout to null to prevent installation from stopping at a certain point in time
         $process->setWorkingDirectory(base_path())->run();
 
@@ -87,8 +81,7 @@ class InstallCommand extends Command
         // $this->info('Seeding data into the database');
         // $this->seed('LaraLockerDatabaseSeeder');
 
-
-
+        $tags = ['config'];
         $this->call('vendor:publish', ['--provider' => LaraLockerServiceProvider::class, '--tag' => $tags]);
 
         $this->info('Successfully installed LaraLocker! Enjoy Learning Locker®');

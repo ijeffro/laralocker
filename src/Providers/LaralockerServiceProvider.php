@@ -3,9 +3,12 @@
 namespace Ijeffro\Laralocker\Providers;
 
 use Ijeffro\Laralocker\xAPI;
+use Illuminate\Filesystem\Filesystem;
 use Ijeffro\Laralocker\LearningLocker;
 use Illuminate\Support\ServiceProvider;
 use Ijeffro\Laralocker\Commands\InstallCommand;
+use Ijeffro\Laralocker\Commands\xAPICommand;
+use Ijeffro\Laralocker\Commands\LearningLockerCommand;
 
 class LaralockerServiceProvider extends ServiceProvider
 {
@@ -88,8 +91,7 @@ class LaralockerServiceProvider extends ServiceProvider
     private function registerConsoleCommands()
     {
         $this->commands(InstallCommand::class);
-        // $this->commands(xAPICommand::class);
-        // $this->commands(LearningLockerCommand::class);
+        $this->commands(xAPICommand::class);
+        $this->commands(LearningLockerCommand::class);
     }
-
 }
