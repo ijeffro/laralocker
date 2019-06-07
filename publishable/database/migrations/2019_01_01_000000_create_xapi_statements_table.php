@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use HT2\LaraLocker\Models\Statement;
+//use HT2\LaraLocker\Models\Statement;
 
 class CreatexAPIStatementsTable extends Migration
 {
