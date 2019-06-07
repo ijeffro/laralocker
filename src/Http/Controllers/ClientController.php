@@ -25,7 +25,8 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        return LearningLocker::client($id)->get();
+        $select = ["_id"];
+        return LearningLocker::client($id)->get($select);
     }
 
     /**

@@ -28,10 +28,13 @@ class ClientHandler extends APIHandler {
      *
      * @return  $response
      */
-    public function get() {
+    public function get($selected = []) {
         try {
             $url = $this->url . $this->api . $this->v2 . $this->client . '/' . $this->id ??  $this->id;
             $response = $this->request($url);
+
+            if ($selected) $response = $this->select($selected, $response);
+
             return $response;
         } catch (Exception $e) {
             return $e;

@@ -44,7 +44,7 @@ class StatementHandler extends APIHandler {
      */
     public function get() {
         try {
-            $url = $this->url . $this->api . $this->statements . '/' . $this->id ?? $this->id;
+            $url = $this->url . $this->api . $this->v2 . $this->statements . '/' . $this->id ?? $this->id;
             $response = $this->request($url);
             return $response;
         } catch (Exception $e) {

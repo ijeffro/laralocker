@@ -85,34 +85,4 @@ class StoreHandler extends APIHandler {
             return $e;
         }
     }
-
-    public function select($selected = [], $response)
-    {
-        if (!is_array($selected) || !$response)  {
-            $error = [ "error" => "Select must be an array."];
-            return json_encode($error);
-        }
-
-        if ($selected) {
-
-            $response = (array) json_decode($response);
-
-            $items = [];
-
-            foreach($selected as $select) {
-                $search = array_key_exists($select, $response);
-
-                if ($search === true) {
-                    $items[$select] = $response[$select];
-                }
-            }
-
-            $response = json_encode($items);
-
-            return $response;
-        }
-
-        return $response;
-
-    }
 }

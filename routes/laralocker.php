@@ -15,8 +15,6 @@ Route::group(['prefix' => 'laralocker'], function () {
 
     $controller_namespace = "\Ijeffro\Laralocker\Http\Controllers\\";
 
-
-
     // Aggregation
     // Route::post('aggregation', $controller_namespace . 'AggregationController@save')->name('learning_locker.post.aggregation');
 

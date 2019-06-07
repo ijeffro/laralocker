@@ -25,7 +25,8 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        return LearningLocker::store($id)->get();
+        $selectables = ["_id"];
+        return LearningLocker::store($id)->get($selectables);
     }
 
     /**

@@ -18,10 +18,10 @@ class APIHandler extends Connection {
                 'headers' => $this->headers()
             ]);
             if ( $response->getStatusCode() === 404 )
-                throw new RequestException(404);
+                throw new ClientException(404);
 
             return $response->getBody()->getContents();
-        } catch (RequestException $e) {
+        } catch (ClientException $e) {
             return $e;
         }
     }
@@ -36,10 +36,10 @@ class APIHandler extends Connection {
                 'body' => $data
             ]);
             if ( $response->getStatusCode() === 404 )
-                throw new RequestException(404);
+                throw new ClientException(404);
 
             return $response->getBody()->getContents();
-        } catch (RequestException $e) {
+        } catch (ClientException $e) {
             return $e;
         }
     }
@@ -52,10 +52,10 @@ class APIHandler extends Connection {
                 'headers' => $this->headers()
             ]);
             if ( $response->getStatusCode() === 404 )
-                throw new RequestException(404);
+                throw new ClientException(404);
 
             return $response->getBody()->getContents();
-        } catch (RequestException $e) {
+        } catch (ClientException $e) {
             return $e;
         }
     }
@@ -70,9 +70,36 @@ class APIHandler extends Connection {
                 'body' => $data
             ]);
             return $response->getBody()->getContents();
-        } catch (RequestException $e) {
+        } catch (ClientException $e) {
             return $e;
         }
+    }
+
+    public function select($selected = [], $response)
+    {
+        if (!is_array($selected) || !$response)  {
+            $error = [ "error" => "Select must be an array."];
+            return json_encode($error);
+        }
+
+        if ($selected) {
+            $response = (array) json_decode($response);
+            $items = [];
+
+            foreach($selected as $select) {
+                $search = array_key_exists($select, $response);
+
+                if ($search === true) {
+                    $items[$select] = $response[$select];
+                }
+            }
+
+            $response = json_encode($items);
+            return $response;
+        }
+
+        return $response;
+
     }
         // dd($this->headers());
         // $response = $client->get('http://httpbin.org/get');

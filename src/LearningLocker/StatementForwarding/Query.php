@@ -1,5 +1,5 @@
 <?php
-namespace LearningLocker\Statement\Forward;
+namespace LearningLocker\StatementForwarding;
 
 use Curatr\Object\Completion\Types;
 use Curatr\ObjectCompletionCriterion;
