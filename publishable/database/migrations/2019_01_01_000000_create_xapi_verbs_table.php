@@ -14,7 +14,7 @@ class CreatexAPIVerbsTable extends Migration
     public function up()
     {
         Schema::create('xapi_verbs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->json('verbs');
             $table->timestamps();
         });

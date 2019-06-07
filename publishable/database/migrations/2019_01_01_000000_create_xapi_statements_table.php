@@ -14,7 +14,7 @@ class CreatexAPIStatementsTable extends Migration
     public function up()
     {
         Schema::create('xapi_statements', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->json('statement');
             $table->enum('status', Statement::$statuses)->default(Statement::STATUS_INACTIVE);
             $table->timestamps();

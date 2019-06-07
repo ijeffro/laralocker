@@ -14,7 +14,7 @@ class CreateLearningLockerTable extends Migration
     public function up()
     {
         Schema::create('learning_locker', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->unsignedInteger('org_id');
             $table->string('url');
             $table->integer('key');
