@@ -2,6 +2,7 @@
 
 namespace Ijeffro\Laralocker\LearningLocker\API;
 
+use Config;
 use Ijeffro\Laralocker\LearningLocker\Connection;
 
 class APIHandler extends Connection {
@@ -100,6 +101,29 @@ class APIHandler extends Connection {
 
         return $response;
 
+    }
+
+    public function checkConnection()
+    {
+        try {
+            $domain = Config::get("laralocker.learning_locker.api.url");
+            $url = $domain . '/api';
+            $response = $this->client()->get($url, [
+                'auth' => $this->auth(),
+                'headers' => $this->headers()
+            ]);
+
+            if ($response->getStatusCode() === 200) {
+                return true;
+            }
+
+            if ( $response->getStatusCode() === 404 )
+                throw new ClientException(404);
+
+            return $response->getBody()->getContents();
+        } catch (ClientException $e) {
+            return $e;
+        }
     }
         // dd($this->headers());
         // $response = $client->get('http://httpbin.org/get');

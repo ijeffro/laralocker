@@ -82,10 +82,10 @@ Route::group(['prefix' => 'laralocker'], function () {
     Route::delete('personas/{id}', $controller_namespace . 'PersonaController@destroy')->name('learning_locker.delete.persona');
 
     // Personas Identifiers
-    // ...
+    // TODO
 
     // Personas Attributes
-    // ...
+    // TODO
 
     // Query
     Route::get('query', $controller_namespace . 'QueryController@index')->name('learning_locker.list.queries');
@@ -141,4 +141,14 @@ Route::group(['prefix' => 'laralocker'], function () {
     Route::patch('visualisations/{id}', $controller_namespace . 'VisualisationController@update')->name('learning_locker.update.visualisation');
     Route::delete('visualisations/{id}', $controller_namespace . 'VisualisationController@destroy')->name('learning_locker.delete.visualisation');
 
+    // Route::group(['prefix' => 'xapi'], function () {
+
+    //     // Visualisations
+    //     Route::get('about', $controller_namespace . 'VisualisationController@index')->name('learning_locker.list.visualisations');
+    //     Route::get('visualisations/{id}', $controller_namespace . 'VisualisationController@show')->name('learning_locker.get.visualisation');
+    //     Route::post('visualisations', $controller_namespace . 'VisualisationController@save')->name('learning_locker.create.visualisation');
+    //     Route::patch('visualisations/{id}', $controller_namespace . 'VisualisationController@update')->name('learning_locker.update.visualisation');
+    //     Route::delete('visualisations/{id}', $controller_namespace . 'VisualisationController@destroy')->name('learning_locker.delete.visualisation');
+
+    // });
 });

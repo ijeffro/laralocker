@@ -91,7 +91,7 @@ class LaralockerServiceProvider extends ServiceProvider
     private function registerConsoleCommands()
     {
         $this->commands(InstallCommand::class);
-        $this->commands(xAPICommand::class);
-        $this->commands(LearningLockerCommand::class);
+        // $this->commands(xAPICommand::class);
+        // $this->commands(LearningLockerCommand::class);
     }
 }
