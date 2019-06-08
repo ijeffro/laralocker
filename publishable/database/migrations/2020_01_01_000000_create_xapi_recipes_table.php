@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use HT2\LaraLocker\Models\Statement;
+//use HT2\LaraLocker\Models\Statement;
 
 class CreatexAPIRecipesTable extends Migration
 {
@@ -14,7 +14,7 @@ class CreatexAPIRecipesTable extends Migration
     public function up()
     {
         Schema::create('xapi_recipes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->json('statement');
             $table->enum('status', Statement::$statuses)->default(Statement::STATUS_INACTIVE);
             $table->timestamps();

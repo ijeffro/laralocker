@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use HT2\LaraLocker\Models\Statement;
+//use HT2\LaraLocker\Models\Statement;
 
 class CreatexAPIVerbsTable extends Migration
 {
@@ -14,7 +14,7 @@ class CreatexAPIVerbsTable extends Migration
     public function up()
     {
         Schema::create('xapi_verbs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->json('verbs');
             $table->timestamps();
         });

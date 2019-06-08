@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use HT2\LaraLocker\Models\Statement;
+//use HT2\LaraLocker\Models\Statement;
 
 class CreateLearningLockerTable extends Migration
 {
@@ -14,7 +14,7 @@ class CreateLearningLockerTable extends Migration
     public function up()
     {
         Schema::create('learning_locker', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->unsignedInteger('org_id');
             $table->string('url');
             $table->integer('key');
