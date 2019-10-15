@@ -14,7 +14,6 @@ use Ijeffro\Laralocker\LearningLocker\Journeys\JourneyHandler;
 use Ijeffro\Laralocker\LearningLocker\Downloads\DownloadHandler;
 use Ijeffro\Laralocker\LearningLocker\Statements\StatementHandler;
 use Ijeffro\Laralocker\LearningLocker\Dashboards\DashboardHandler;
-use Ijeffro\Laralocker\LearningLocker\Aggregation\AggregationHandler;
 use Ijeffro\Laralocker\LearningLocker\Organisation\OrganisationHandler;
 use Ijeffro\Laralocker\LearningLocker\Visualisations\VisualisationHandler;
 use Ijeffro\Laralocker\LearningLocker\JourneyProgress\JourneyProgressHandler;
@@ -70,19 +69,6 @@ class LearningLocker {
 
         $this->connection = new Connection($key, $secret, $url);
         return $this->connect($key, $secret, $url);
-    }
-
-    /**
-     * Learning Locker API: Clients
-     *
-     * @return ClientHandler
-     */
-    public function aggregation()
-    {
-        if ($this->aggregation) return $this->aggregation;
-
-        $this->aggregation = new AggregationHandler;
-        return $this->aggregation();
     }
 
     /**
@@ -415,8 +401,8 @@ class LearningLocker {
     {
         if ($this->organisation) return $this->organisation;
 
-        $this->organisation = new OrganisationHandler($id ?? $id);
-        return $this->organisation();
+        $this->organisation = new OrganisationHandler($id);
+        return $this->organisation($id);
 
     }
 
@@ -436,7 +422,7 @@ class LearningLocker {
     /**
      * Learning Locker API: Visualisations API
      *
-     * @param $id
+     * @param integer|null $id
      * @return VisualisationHandler
      */
     public function visualisation($id = null)
