@@ -8,14 +8,13 @@
 <a href="https://docs.learninglocker.net/"><img align="center" width="50px" height="56px" src="https://www.ht2labs.com/wp-content/uploads/2019/03/learning-locker-logo-icon.png" alt="Learning Locker"><a/>
 </p>
 
-<h1 align="center">LaraLocker<h1>
+<h1 align="center">LaraLocker</h1>
 
 <p align="center">
 <a href="https://packagist.org/packages/ijeffro/laralocker"><img src="https://img.shields.io/packagist/v/ijeffro/laralocker.svg?style=flat-square" alt="Latest Version on Packagist"></a>
 <a href="https://travis-ci.org/ijeffro/laralocker"><img src="https://img.shields.io/travis/ijeffro/laralocker/master.svg?style=flat-square" alt="Build Status"></a>
 <a href="https://scrutinizer-ci.com/g/ijeffro/laralocker"><img src="https://img.shields.io/scrutinizer/g/ijeffro/laralocker.svg?style=flat-square" alt="Quality Score"></a>
 <a href="https://packagist.org/packages/ijeffro/laralocker"><img src="https://img.shields.io/packagist/dt/ijeffro/laralocker.svg?style=flat-square" alt="Total Downloads"></a>
-
 </p>
 
 
