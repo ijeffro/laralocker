@@ -36,6 +36,7 @@ class LaralockerServiceProvider extends ServiceProvider
                 __DIR__.'/../resources/views' => resource_path('views/vendor/laralocker'),
             ], 'views');*/
 
+
             // Publishing assets.
             /*$this->publishes([
                 __DIR__.'/../resources/assets' => public_path('vendor/laralocker'),
@@ -85,8 +86,9 @@ class LaralockerServiceProvider extends ServiceProvider
     /**
      * Register Console Commands
      *
+     * @return xAPICommand
      * @return InstallCommand
-     *
+     * @return LearningLockerCommand
      */
     private function registerConsoleCommands()
     {

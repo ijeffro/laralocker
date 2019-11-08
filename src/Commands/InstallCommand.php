@@ -13,28 +13,41 @@ use Ijeffro\Laralocker\Constants\LearningLockerConstants;
 
 class InstallCommand extends Command
 {
-
-    protected $seedersPath = __DIR__.'/../../publishable/database/seeds/';
-
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'laralocker:install';
+    protected $name = 'laralocker:setup';
+
+    /**
+     * The console command signature.
+     *
+     * @var string
+     */
+    protected $signature = 'laralocker:setup {--routes : Setup Learning Locker® Endpooints.}
+                                             {--client : Setup a Learning Locker® Client.}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install LaraLocker - Learning Locker® package for Laravel';
+    protected $description = 'Setup LaraLocker - Learning Locker® package for Laravel';
+
+    const API_ROUTE = 'api.php';
+    const WEB_ROUTE = 'web.php';
+    const CONSOLE_ROUTE = 'console.php';
+    const CHANNELS_ROUTE = 'channels.php';
+
+    protected $seedersPath = __DIR__.'/../../publishable/database/seeds/';
+    protected $migrationsPath = __DIR__.'/../../publishable/database/migrations/';
 
     protected function getOptions()
     {
         return [
-            ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production', null],
-            ['with-dummy', null, InputOption::VALUE_NONE, 'Install with dummy data', null],
+            ['client', null, InputOption::VALUE_NONE, 'Setup a Learning Locker® Client', null],
+            ['routes', null, InputOption::VALUE_NONE, 'Setup a Learning Locker® Endpooints', null],
         ];
     }
 
@@ -52,21 +65,25 @@ class InstallCommand extends Command
      */
     public function handle(Filesystem $filesystem)
     {
-        $this->info("Installing LaraLocker...\n");
+        $this->info("Setup LaraLocker - A Learning Locker® package for Laravel...\n");
 
-        $this->setupClient();
+        $this->setupLaravelRouting($filesystem);
+
+        // $this->setupLearningLockerClient();
+
+        return $this->info("Successfully setup LaraLocker! Enjoy Learning Locker®");
+
+        // $this->call('learninglocker:client', ['--setup' => true]);
         // $this->setupMigrationFiles();
 
         // $this->info('Migrating the database tables into your application');
         // $this->call('migrate', ['--force' => $this->option('force')]);
 
-        $composer = $this->findComposer();
-        $process = new Process($composer.' dump-autoload');
+        // $composer = $this->findComposer();
+        // $process = new Process($composer.' dump-autoload');
 
-        $process->setTimeout(null); // Setting timeout to null
-        $process->setWorkingDirectory(base_path())->run();
-
-        $this->addLearningLockerRouting($filesystem);
+        // $process->setTimeout(null); // Setting timeout to null
+        // $process->setWorkingDirectory(base_path())->run();
 
         // $this->info('Seeding data into the database');
         // $this->seed('LaraLockerDatabaseSeeder');
@@ -74,70 +91,58 @@ class InstallCommand extends Command
         $this->publishVendor();
 
         // $this->checkLearningLockerConnection();
-
-        $this->info('Successfully installed LaraLocker! Enjoy Learning Locker®');
     }
 
     /**
-     * Setup Learning Locker Environment Variables
+     * Setup Learning Locker® Endpoints
      *
+     * @param Filesystem $filesystem
+     * @return void
      */
-    protected function setupClient()
-    {
-        $this->question(" << Setup Connection to Learning Locker® ");
+    public function setupLaravelRouting(Filesystem $filesystem) {
+        if ($this->confirm("Add the default Learning Locker® endpoints to your Laravel routes file?", true)) {
 
-        if ($this->confirm("Setup a single Learning Locker client with env variables?")): $this->setupEnv();
+            $route_files = array_slice(scandir(base_path('routes')), 2);
+            $file_choice = $this->choice('Which route file?', $route_files);
 
-        elseif ($this->confirm("Setup a single client with database?")):
+            switch ($file_choice) {
+                case self::API_ROUTE:
 
-            if($this->confirm("Add new columns to an existing database table?")) {
+                $this->addLearningLockerRouting($filesystem, self::API_ROUTE);
+            break;
+                case self::WEB_ROUTE:
+                $this->addLearningLockerRouting($filesystem, self::WEB_ROUTE);
+            break;
+                case self::CONSOLE_ROUTE:
+                $this->addLearningLockerRouting($filesystem, self::CONSOLE_ROUTE);
+            break;
+                case self::CHANNELS_ROUTE:
+                $this->addLearningLockerRouting($filesystem, self::CHANNELS_ROUTE);
+            break;
+            default:
+                $this->error('Could not find the Laravel route file...'); echo "\n";
 
-                // $databaseTables = \DB::connection()->getDoctrineSchemaManager()->listTableNames();
-
-                $tables = [];
-                foreach ($databaseTables as $databaseTable) {
-                    $tables[] = $databaseTable->getName();
+                if ($this->confirm("Would you like to try again?", true)) {
+                    return $this->setupLaravelRouting($filesystem);
                 }
-
-                $table = $this->anticipate("Which table?", $tables);
-                dd($table);
-
-                // if($this->confirm("Which database table?")) {
-                //     dump("Which database table?");
-                // }
-
-            } elseif ($this->confirm("Add Learning Locker client credentials to an existing database table?")) {
-                dump("Single client in the database");
-            } else {
-                dump("Single client in the database");
             }
 
-        elseif ($this->confirm("Setup multiple Learning Locker client's with database?")):
-            dump("database setup");
+        }
+    }
 
-        else:
 
-            $this->error(" << Client Setup Failed: Laralocker requires a Learning Locker url, client key and secret ");
-            $this->error(" << Docs: (https://docs.learninglocker.net/http-clients/) ");
-
-            if($this->confirm("Attempt to conigure client details?")) {
-                $this->setupClient();
-            }
-
-            return $this->error(" << Setup Failed: Laralocker requires Learning Locker Client details");
-
-        endif;
+    public function setupLearningLockerClient() {
+        return $this->call('learninglocker:client', ['--setup' => true]);
     }
 
     /**
-     * Setup Learning Locker Environment Variables
+     * Setup Learning Locker® Environment Variables
      *
      * @return LEARNING_LOCKER_URL
      * @return LEARNING_LOCKER_KEY
      * @return LEARNING_LOCKER_SECRET
      */
-    public function setupEnv()
-    {
+    public function setupEnv() {
         $env = base_path('.env');
         $filesystem = new Filesystem;
         $env_contents = $filesystem->get($env);
@@ -164,78 +169,78 @@ class InstallCommand extends Command
         // Do the env smarts
         if ($url_has_variable_and_value && $key_has_variable_and_value && $secret_has_variable_and_value) {
 
-            if ($this->confirm('Update Learning Locker api connection?')) {
-                $domain = $this->anticipate("What's the new learning Locker url?", [
+            if ($this->confirm('Update Learning Locker® api connection?')) {
+                $domain = $this->anticipate("What's the new Learning Locker® url?", [
                     'https://saas.learninglocker.net', 'http://saas.learninglocker.net'
                 ]);
                 $this->setEnv([strtoupper(LearningLockerConstants::URL) => $domain]);
 
-                $key = $this->ask("What's the new learning Locker client key?");
+                $key = $this->ask("What's the new Learning Locker® client key?");
                 $this->setEnv([strtoupper(LearningLockerConstants::KEY) => $key]);
 
-                $secret = $this->secret("What's the new learning Locker client secret");
+                $secret = $this->secret("What's the new Learning Locker® client secret");
                 $this->setEnv([strtoupper(LearningLockerConstants::SECRET) => $secret]);
             }
 
         } else {
             try {
 
-                // Check .env for Learning Locker url status
+                // Check .env for Learning Locker® url status
                 switch (file_exists($env)) {
                     case $url_has_variable_and_value:
-                        if ($this->confirm('Update Learning Locker domain?')) {
-                            $domain = $this->anticipate("What's the new learning Locker domain?", [
+                        if ($this->confirm('Update Learning Locker® domain?')) {
+                            $domain = $this->anticipate("What's the new Learning Locker® domain?", [
                                 'https://saas.learninglocker.net', 'http://saas.learninglocker.net'
                             ]);
                             $this->setEnv([strtoupper(LearningLockerConstants::URL) => $domain]);
                         }
                         break;
                     case $url_has_variable_with_no_value:
-                            $domain = $this->anticipate("What's your Learning Locker url?", [
+                            $domain = $this->anticipate("What's your Learning Locker® url?", [
                                 'https://saas.learninglocker.net', 'http://saas.learninglocker.net'
                             ]);
                             $this->setEnv([strtoupper(LearningLockerConstants::URL) => $domain]);
                         break;
                     case $url_has_no_variable_and_no_value:
-                            $domain = $this->anticipate("What's your Learning Locker url?", [
+                            $domain = $this->anticipate("What's your Learning Locker® url?", [
                                 'https://saas.learninglocker.net', 'http://saas.learninglocker.net'
                             ]);
                             $this->createEnv(strtoupper(LearningLockerConstants::URL), $domain);
                         break;
                 }
 
-                // Check .env for Learning Locker client key status
+                // Check .env for Learning Locker® client key status
                 switch (file_exists($env)) {
                     case $key_has_variable_and_value:
-                        if ($this->confirm('Update Learning Locker client key?')) {
-                            $key = $this->ask("What's the new learning Locker client key?");
+                        if ($this->confirm('Update Learning Locker® client key?')) {
+                            $key = $this->ask("What's the new Learning Locker® client key?");
                             $this->setEnv([strtoupper(LearningLockerConstants::KEY) => $key]);
                         }
                         break;
                     case $key_has_variable_with_no_value:
-                            $key = $this->ask("What's your Learning Locker client key?");
+                            $key = $this->ask("What's your Learning Locker® client key?");
                             $this->setEnv([strtoupper(LearningLockerConstants::KEY) => $key]);
                         break;
                     case $key_has_no_variable_and_no_value:
-                            $key = $this->ask("What's your Learning Locker client key?");
+                            $key = $this->ask("What's your Learning Locker® client key?");
                             $this->createEnv(strtoupper(LearningLockerConstants::KEY), $key);
                         break;
                 }
 
-                // Check .env for Learning Locker client secret status
+                // Check .env for Learning Locker® client secret status
                 switch (file_exists($env)) {
                     case $secret_has_variable_and_value:
-                        if ($this->confirm('Update Learning Locker client secret?')) {
-                            $secret = $this->secret("What's the new learning Locker client secret");
+                        if ($this->confirm('Update Learning Locker® client secret?')) {
+                            $secret = $this->secret("What's the new Learning Locker® client secret");
                             $this->setEnv([strtoupper(LearningLockerConstants::KEY) => $key]);
                         }
                         break;
                     case $secret_has_variable_with_no_value:
-                            $secret = $this->secret("What's your Learning Locker client secret");
+                            $secret = $this->secret("What's your Learning Locker® client secret");
                             $this->setEnv([strtoupper(LearningLockerConstants::KEY) => $secret]);
                         break;
                     case $secret_has_no_variable_and_no_value:
-                            $secret = $this->secret("What's your Learning Locker client secret");
+                            $secret = $this->secret("What's your Learning Locker® client secret");
                             $this->createEnv(strtoupper(LearningLockerConstants::SECRET), $secret);
                         break;
                 }
@@ -245,19 +250,19 @@ class InstallCommand extends Command
             }
         }
 
-        $this->info(" << Connecting to Learning Locker...");
+        return $this->info(" << Connecting to Learning Locker®...");
 
         $connectionCheck = \LearningLocker::connection()->check(env(strtoupper(LearningLockerConstants::URL)));
 
         if ($connectionCheck) {
-            return $this->info(" << Connected to Learning Locker Succussfully");
+            return $this->info(" << Connected to Learning Locker® Succussfully");
         }
 
-        if ($this->confirm('Try updating Learning Locker details again?')) {
+        if ($this->confirm('Try updating Learning Locker® details again?')) {
             return $this->setupEnv();
         }
 
-        return $this->error("Unable to connection with Learning Locker");
+        return $this->error("Unable to connection with Learning Locker®");
     }
 
     /**
@@ -274,17 +279,17 @@ class InstallCommand extends Command
         return 'composer';
     }
 
-    public function addLearningLockerRouting(Filesystem $filesystem)
+    public function addLearningLockerRouting(Filesystem $filesystem, $type)
     {
-        $routes_contents = $filesystem->get(base_path('routes/api.php'));
+        $routes_contents = $filesystem->get(base_path('routes/' . $type));
 
         if (false === strpos($routes_contents, 'LearningLocker::routes()')) {
-
-            if ($this->confirm('Create Laravel api routes for Learning Locker?')) {
-                $this->info('Adding LearningLocker api routes to routes/api.php');
-                $filesystem->append(base_path('routes/api.php'), "\n\nLearningLocker::routes();\n");
-                \LearningLocker::routes();
+            if ($this->confirm('Create Laravel ' . $type . ' routes?')) {
+                $filesystem->append(base_path('routes/' . $type), "\nLearningLocker::routes();\n");
+                $this->info('Succesfully added Learning Locker® endpoints to laravel routes/' . $type);
             }
+        } else {
+            return $this->line('LearningLocker::routes() were already added to ' . $type . "\n");
         }
     }
 

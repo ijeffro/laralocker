@@ -1,7 +1,12 @@
 {
     "name": "ijeffro/laralocker",
     "description": "Laravel + Learning Locker || A Laravel Package for Learning Locker.",
-    "keywords": ["laravel", "learning locker", "xapi", "lrs"],
+    "keywords": [
+        "laravel",
+        "learning locker",
+        "xapi",
+        "lrs"
+    ],
     "license": "MIT",
     "homepage": "https://ijeffro.github.io/laralocker/",
     "support": {
@@ -16,18 +21,18 @@
     ],
     "require": {
         "php": ">=7",
-        "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|~6.0",
+        "illuminate/support": "~4.2.0|~5.0|~5.1.0|~5.2.0|~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|~6.0|~6.1.0|~6.2.0|~6.3.0|~6.4.0",
         "guzzlehttp/guzzle": "~6.3",
         "lcobucci/jwt": "^3.2",
         "ext-json": "*"
     },
     "require-dev": {
-        "phpunit/phpcov": "~4.0|~5.0|~6.0",
+        "phpunit/phpcov": "~3.7.0|~4.0|~5.0|~6.0",
         "phpunit/phpunit": "~5.7.14|~6.1|~7.0|~8.0",
-        "laravel/framework": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|~6.0",
+        "laravel/framework": "~4.2.0|~5.0|~5.1.0|~5.2.0|~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|~6.0|~6.1.0|~6.2.0|~6.3.0|~6.4.0",
+
         "orchestra/testbench": "~3.0",
-        "guzzlehttp/guzzle": "~6.3",
-        "rusticisoftware/tincan": "^1.1",
+        "guzzlehttp/guzzle": "~5.0|~6.3",
         "laravel/browser-kit-testing": "~2.0.0|~3.0.0|~4.0.0|~5.0.0|~5.1",
         "orchestra/testbench-browser-kit": "~3.5|~3.6|~3.7|~3.8|~4.0"
     },
@@ -44,7 +49,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true
