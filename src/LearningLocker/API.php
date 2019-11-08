@@ -18,6 +18,12 @@ class API extends Connection {
   protected $queryApi;
 
 
+  /**
+   * Organisations Facade
+   *
+   * @param null
+   * @return Organisation
+   */
   public function organisation() {
     if ($this->organisationApi) {
       return $this->organisationApi;
