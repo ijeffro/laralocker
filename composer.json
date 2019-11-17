@@ -1,69 +1,30 @@
 {
-    "name": "ijeffro/laralocker",
-    "description": "Laravel + Learning Locker || A Laravel Package for Learning Locker.",
-    "keywords": [
-        "laravel",
-        "learning locker",
-        "xapi",
-        "lrs"
-    ],
-    "license": "MIT",
-    "homepage": "https://ijeffro.github.io/laralocker/",
-    "support": {
-        "issues": "https://github.com/ijeffro/laralocker/issues",
-        "source": "https://github.com/ijeffro/laralocker"
-    },
-    "authors": [
-        {
-            "name": "Phil Graham",
-            "email": "phil.graham@ht2labs.com"
-        }
-    ],
-    "require": {
-        "php": ">=5.6",
-        "illuminate/support": "~4.2.0|~5.0|~5.1.0|~5.2.0|~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|~6.0|~6.1.0|~6.2.0|~6.3.0|~6.4.0",
-        "guzzlehttp/guzzle": "~5.0|~6.3",
-        "lcobucci/jwt": "^3.2",
-        "ext-json": "*"
-    },
-    "require-dev": {
-        "phpunit/phpcov": "~3.7.0|~4.0|~5.0|~6.0",
-        "phpunit/phpunit": "~5.7.14|~6.1|~7.0|~8.0",
-        "laravel/framework": "~4.2.0|~5.0|~5.1.0|~5.2.0|~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|~6.0|~6.1.0|~6.2.0|~6.3.0|~6.4.0",
-
-        "orchestra/testbench": "~3.0",
-        "guzzlehttp/guzzle": "~5.0|~6.3",
-        "laravel/browser-kit-testing": "~2.0.0|~3.0.0|~4.0.0|~5.0.0|~5.1",
-        "orchestra/testbench-browser-kit": "~3.5|~3.6|~3.7|~3.8|~4.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Ijeffro\\Laralocker\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Ijeffro\\Laralocker\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Ijeffro\\Laralocker\\Providers\\LaralockerServiceProvider"
-            ],
-            "aliases": {
-                "xAPI": "Ijeffro\\Laralocker\\Facades\\xAPI",
-                "Laralocker": "Ijeffro\\Laralocker\\Facades\\Laralocker",
-                "LearningLocker": "Ijeffro\\Laralocker\\Facades\\LearningLocker"
-            }
-        }
+  "name": "ijeffro/laralocker",
+  "description": "Laravel + Learning Locker || A Laravel Package for Learning Locker.",
+  "keywords": [
+    "learning locker",
+    "laravel",
+    "xapi",
+    "php",
+    "lrs"
+  ],
+  "authors": [
+    {
+      "name": "Phil Graham",
+      "email": "phil.graham@learningpool.com"
     }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "4.2.*"
+  },
+  "autoload": {
+    "classmap": [
+      "src/migrations"
+    ],
+    "psr-0": {
+      "Ijeffro\\Laralocker\\": "src/"
+    }
+  },
+  "minimum-stability": "stable"
 }
