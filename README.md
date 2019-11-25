@@ -87,6 +87,8 @@ Delete a Learning Locker store
 LearningLocker::store($id)->delete();
 ```
 
+### Wiki
+Please see [Wiki](https://github.com/ijeffro/laralocker/wiki) for more information what has changed recently.
 
 ### Changelog
 
