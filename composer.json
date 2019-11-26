@@ -1,0 +1,30 @@
+{
+  "name": "ijeffro/laralocker",
+  "description": "Laravel + Learning Locker || A Laravel Package for Learning Locker.",
+  "keywords": [
+    "learning locker",
+    "laravel",
+    "xapi",
+    "php",
+    "lrs"
+  ],
+  "authors": [
+    {
+      "name": "Phil Graham",
+      "email": "phil.graham@learningpool.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "4.2.*"
+  },
+  "autoload": {
+    "classmap": [
+      "src/migrations"
+    ],
+    "psr-0": {
+      "Ijeffro\\Laralocker\\": "src/"
+    }
+  },
+  "minimum-stability": "stable"
+}
