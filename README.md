@@ -11,10 +11,11 @@
 <h1 align="center">LaraLocker</h1>
 
 <p align="center">
-<a href="https://packagist.org/packages/ijeffro/laralocker"><img src="https://img.shields.io/packagist/v/ijeffro/laralocker.svg?style=flat-square" alt="Latest Version on Packagist"></a>
 <a href="https://travis-ci.org/ijeffro/laralocker"><img src="https://img.shields.io/travis/ijeffro/laralocker/master.svg?style=flat-square" alt="Build Status"></a>
 <a href="https://scrutinizer-ci.com/g/ijeffro/laralocker"><img src="https://img.shields.io/scrutinizer/g/ijeffro/laralocker.svg?style=flat-square" alt="Quality Score"></a>
 <a href="https://packagist.org/packages/ijeffro/laralocker"><img src="https://img.shields.io/packagist/dt/ijeffro/laralocker.svg?style=flat-square" alt="Total Downloads"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a><a href="https://packagist.org/packages/ijeffro/laralocker"><img src="https://img.shields.io/packagist/v/ijeffro/laralocker.svg?style=flat-square" alt="Latest Version on Packagist"></a>
+<a href="https://github.com/Ijeffro/Laralocker/releases"><img src="https://img.shields.io/github/release/Ijeffro/Laralocker.svg?style=flat-square" alt="Latest Version"></img></a>
 </p>
 
 
