@@ -1,22 +1,23 @@
 {
   "name": "ijeffro/laralocker",
-  "description": "Laravel + Learning Locker || A Laravel Package for Learning Locker.",
-  "keywords": [
-    "learning locker",
-    "laravel",
-    "xapi",
-    "php",
-    "lrs"
-  ],
+  "description": "Laravel + Learning Locker || A Laravel Bridge for Learning Locker.",
+  "keywords": ["learning locker", "laravel", "php", "xapi", "lrs"],
+  "license": "MIT",
   "authors": [
     {
       "name": "Phil Graham",
-      "email": "phil.graham@learningpool.com"
+      "email": "phil.graham@learningpool.com",
+      "role": "Creator"
     }
   ],
+  "homepage": "https://github.com/ijeffro/laralocker",
+  "support": {
+    "issues": "https://github.com/ijeffro/laralocker/issues"
+  },
   "require": {
     "php": ">=5.4.0",
-    "illuminate/support": "4.2.*"
+    "illuminate/support": "4.2.*",
+    "guzzlehttp/guzzle": "~5.0"
   },
   "autoload": {
     "classmap": [
