@@ -40,7 +40,7 @@ LEARNING_LOCKER_SECRET=fa2d7e9850f401d6ae98e2805ccb404c6aaa8c45
 Run the install command to add the api routes...
 
 ```bash
-php artisan laralocker:install
+php artisan laralocker:setup
 ```
 ## Usage
 
