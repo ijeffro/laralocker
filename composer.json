@@ -1,6 +1,6 @@
 {
     "name": "ijeffro/laralocker",
-    "description": "Laravel + Learning Locker || A Laravel Package for Learning Locker.",
+    "description": "A Laravel API connector for Learning Locker®, the open-source Learning Record Store.",
     "keywords": [
         "laravel",
         "learning locker",
@@ -16,25 +16,18 @@
     "authors": [
         {
             "name": "Phil Graham",
-            "email": "phil.graham@ht2labs.com"
+            "homepage": "https://github.com/ijeffro"
         }
     ],
     "require": {
-        "php": ">=5.6",
-        "illuminate/support": "~4.2.0|~5.0|~5.1.0|~5.2.0|~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|~6.0|~6.1.0|~6.2.0|~6.3.0|~6.4.0",
-        "guzzlehttp/guzzle": "~5.0|~6.3",
-        "lcobucci/jwt": "^3.2",
-        "ext-json": "*"
+        "php": "^8.2",
+        "ext-json": "*",
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0"
     },
     "require-dev": {
-        "phpunit/phpcov": "~3.7.0|~4.0|~5.0|~6.0",
-        "phpunit/phpunit": "~5.7.14|~6.1|~7.0|~8.0",
-        "laravel/framework": "~4.2.0|~5.0|~5.1.0|~5.2.0|~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|~6.0|~6.1.0|~6.2.0|~6.3.0|~6.4.0",
-
-        "orchestra/testbench": "~3.0",
-        "guzzlehttp/guzzle": "~5.0|~6.3",
-        "laravel/browser-kit-testing": "~2.0.0|~3.0.0|~4.0.0|~5.0.0|~5.1",
-        "orchestra/testbench-browser-kit": "~3.5|~3.6|~3.7|~3.8|~4.0"
+        "orchestra/testbench": "^10.0|^11.0",
+        "phpunit/phpunit": "^11.5|^12.0|^13.0"
     },
     "autoload": {
         "psr-4": {
@@ -47,22 +40,21 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [
-                "Ijeffro\\Laralocker\\Providers\\LaralockerServiceProvider"
+                "Ijeffro\\Laralocker\\LaralockerServiceProvider"
             ],
             "aliases": {
-                "xAPI": "Ijeffro\\Laralocker\\Facades\\xAPI",
-                "Laralocker": "Ijeffro\\Laralocker\\Facades\\Laralocker",
-                "LearningLocker": "Ijeffro\\Laralocker\\Facades\\LearningLocker"
+                "LearningLocker": "Ijeffro\\Laralocker\\Facades\\LearningLocker",
+                "xAPI": "Ijeffro\\Laralocker\\Facades\\XAPI"
             }
         }
     }
