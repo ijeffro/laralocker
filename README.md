@@ -16,7 +16,7 @@
 <a href="composer.json"><img src="https://img.shields.io/badge/php-%5E8.2-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP ^8.2"></a>
 <a href="composer.json"><img src="https://img.shields.io/badge/laravel-12%20%7C%2013-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Laravel 12 | 13"></a>
 <a href="https://github.com/adlnet/xAPI-Spec"><img src="https://img.shields.io/badge/xAPI-1.0.3-0E7490?style=flat-square" alt="xAPI 1.0.3"></a>
-<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="MIT License"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="MIT License"></a>
 </p>
 
 <p align="center">A Laravel API connector for <a href="https://docs.learninglocker.net/">Learning Locker®</a>, the open-source Learning Record Store.</p>
@@ -228,6 +228,6 @@ Please report security issues privately through [GitHub security advisories](htt
 
 ## License
 
-MIT. See the [license file](LICENSE.md).
+MIT. See the [license file](LICENSE).
 
 Learning Locker® is a registered trademark of Learning Pool. This package is not affiliated with Learning Pool.
