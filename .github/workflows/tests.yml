@@ -2,6 +2,7 @@ name: tests
 
 on:
   push:
+    branches: [main]
   pull_request:
 
 jobs:
@@ -23,6 +24,29 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
+      # Pint and PHPStan run in their own workflows; Pint needs PHP 8.3+.
+      - run: composer remove laravel/pint phpstan/phpstan --dev --no-interaction --no-update
       - run: composer require "illuminate/http:${{ matrix.laravel }}" "illuminate/support:${{ matrix.laravel }}" --no-interaction --no-update
       - run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
       - run: vendor/bin/phpunit
+
+  coverage:
+    runs-on: ubuntu-latest
+    name: Coverage
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: pcov
+      - run: composer update --prefer-dist --no-interaction
+      - run: vendor/bin/phpunit --coverage-clover build/clover.xml --coverage-text
+      # The README badge says 100%, so anything less fails the build.
+      - name: Require 100% line coverage
+        run: |
+          php -r '
+            $metrics = simplexml_load_file("build/clover.xml")->project->metrics;
+            $percent = 100 * (int) $metrics["coveredstatements"] / max(1, (int) $metrics["statements"]);
+            printf("Line coverage: %.2f%%\n", $percent);
+            exit($percent < 100 ? 1 : 0);
+          '

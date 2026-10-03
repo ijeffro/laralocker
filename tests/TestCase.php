@@ -2,6 +2,8 @@
 
 namespace Ijeffro\Laralocker\Tests;
 
+use Ijeffro\Laralocker\Facades\LearningLocker;
+use Ijeffro\Laralocker\Facades\XAPI;
 use Ijeffro\Laralocker\LaralockerServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -15,8 +17,8 @@ abstract class TestCase extends Orchestra
     protected function getPackageAliases($app): array
     {
         return [
-            'LearningLocker' => \Ijeffro\Laralocker\Facades\LearningLocker::class,
-            'xAPI' => \Ijeffro\Laralocker\Facades\XAPI::class,
+            'LearningLocker' => LearningLocker::class,
+            'xAPI' => XAPI::class,
         ];
     }
 

@@ -21,8 +21,7 @@ class Resource
         protected string $model,
         protected ?string $id = null,
         protected ?string $cursorModel = null,
-    ) {
-    }
+    ) {}
 
     /**
      * Filter a list with a MongoDB query, e.g. ['title' => 'My store'].

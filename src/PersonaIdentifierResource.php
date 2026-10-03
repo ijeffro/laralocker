@@ -10,7 +10,7 @@ class PersonaIdentifierResource extends Resource
     /**
      * Create the identifier, or return the one that already has this ifi.
      *
-     * @param  array  $ifi      e.g. ['key' => 'mbox', 'value' => 'mailto:jane@example.com']
+     * @param  array  $ifi  e.g. ['key' => 'mbox', 'value' => 'mailto:jane@example.com']
      * @param  string|null  $persona  the persona to attach it to when it is created
      */
     public function upsert(array $ifi, ?string $persona = null): array

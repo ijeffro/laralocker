@@ -14,16 +14,14 @@ use Illuminate\Http\Client\Factory;
  */
 class LearningLocker
 {
-    public function __construct(protected Connection $connection)
-    {
-    }
+    public function __construct(protected Connection $connection) {}
 
     /**
      * The same API with another client's credentials.
      */
-    public function connect(string $url, string $key, string $secret, int $timeout = 30): static
+    public function connect(string $url, string $key, string $secret, int $timeout = 30): self
     {
-        return new static(new Connection(app(Factory::class), $url, $key, $secret, $timeout));
+        return new self(new Connection(app(Factory::class), $url, $key, $secret, $timeout));
     }
 
     /**
@@ -59,7 +57,7 @@ class LearningLocker
      * Run a MongoDB aggregation pipeline over the organisation's statements.
      *
      * @param  array  $pipeline  e.g. [['$match' => ['statement.verb.id' => '...']], ['$limit' => 10]]
-     * @param  array  $options   cache, maxTimeMS, maxScan
+     * @param  array  $options  cache, maxTimeMS, maxScan
      */
     public function aggregate(array $pipeline, array $options = []): array
     {

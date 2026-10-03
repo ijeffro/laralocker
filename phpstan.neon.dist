@@ -1,0 +1,7 @@
+parameters:
+    level: 8
+    paths:
+        - src
+    ignoreErrors:
+        # Learning Locker documents are free-form JSON, so arrays stay untyped.
+        - identifier: missingType.iterableValue

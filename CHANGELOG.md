@@ -35,7 +35,8 @@ A rewrite as a plain API connector that works against Learning Locker v2+.
 - `personaIdentifiers()` (with `upsert()`), `personaAttributes()` and `personaImports()`.
 - `aggregate()`, `ping()`, `clientInfo()`, `about()`, `connect()` and `resource()`.
 - `xAPI::statements()`, `xAPI::statement()` and `xAPI::more()` for reading statements.
-- A test suite, run on GitHub Actions.
+- A test suite with 100% line coverage, PHPStan level 8 and Pint, all run on GitHub Actions.
+- A logo.
 
 ### Removed
 

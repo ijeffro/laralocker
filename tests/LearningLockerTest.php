@@ -121,6 +121,60 @@ class LearningLockerTest extends TestCase
         }
     }
 
+    public function test_singular_methods_address_one_document(): void
+    {
+        Http::fake(['*' => Http::response(['_id' => 'x'])]);
+
+        foreach ([
+            'organisation' => 'organisation', 'store' => 'lrs', 'client' => 'client', 'user' => 'user', 'role' => 'role',
+            'query' => 'query', 'export' => 'export', 'download' => 'download', 'dashboard' => 'dashboard',
+            'visualisation' => 'visualisation', 'statementForwarding' => 'statementforwarding', 'persona' => 'persona',
+            'personaIdentifier' => 'personaIdentifier', 'personaAttribute' => 'personaattribute',
+            'personaImport' => 'personasimport', 'statement' => 'statement',
+        ] as $method => $model) {
+            LearningLocker::$method('x')->get();
+            Http::assertSent(fn (Request $request) => $request->url() === "https://lrs.example.com/api/v2/{$model}/x");
+        }
+
+        $this->assertSame('x', LearningLocker::resource('journey', 'x')->id());
+    }
+
+    public function test_first_select_and_populate(): void
+    {
+        Http::fake(['*' => Http::sequence()->push([['_id' => 'c1']])->push([])]);
+
+        $this->assertSame(['_id' => 'c1'], LearningLocker::clients()->select(['_id'])->populate(['lrs_id'])->first());
+        $this->assertNull(LearningLocker::clients()->first());
+
+        Http::assertSent(fn (Request $request) => $request->url() === 'https://lrs.example.com/api/v2/client?select=_id&populate=lrs_id&limit=1');
+    }
+
+    public function test_about_reads_the_xapi_endpoint(): void
+    {
+        Http::fake(['lrs.example.com/data/xAPI/about' => Http::response(['version' => ['1.0.3']])]);
+
+        $this->assertSame(['version' => ['1.0.3']], LearningLocker::about());
+    }
+
+    public function test_ping_is_false_when_learning_locker_is_down(): void
+    {
+        Http::fake(['*' => Http::response('Bad Gateway', 502)]);
+
+        $this->assertFalse(LearningLocker::ping());
+    }
+
+    public function test_statements_cannot_be_changed(): void
+    {
+        $this->expectException(LogicException::class);
+
+        LearningLocker::statement('x')->update(['voided' => true]);
+    }
+
+    public function test_exposes_its_connection(): void
+    {
+        $this->assertSame('https://lrs.example.com', LearningLocker::connection()->url());
+    }
+
     public function test_upserts_persona_identifiers(): void
     {
         Http::fake(['*' => Http::response(['identifier' => ['_id' => 'i1'], 'wasCreated' => true])]);

@@ -9,11 +9,11 @@ class LearningLockerException extends RuntimeException
 {
     public ?Response $response = null;
 
-    public static function fromResponse(Response $response, string $method, string $path): static
+    public static function fromResponse(Response $response, string $method, string $path): self
     {
         $message = $response->json('message') ?? $response->json('error') ?? trim($response->body());
 
-        $exception = new static(
+        $exception = new self(
             sprintf('Learning Locker answered %s %s with %d: %s', $method, $path, $response->status(), $message ?: $response->reason()),
             $response->status(),
         );
@@ -22,9 +22,9 @@ class LearningLockerException extends RuntimeException
         return $exception;
     }
 
-    public static function missingCredentials(): static
+    public static function missingCredentials(): self
     {
-        return new static('Learning Locker is not configured: set LEARNING_LOCKER_URL, LEARNING_LOCKER_KEY and LEARNING_LOCKER_SECRET.');
+        return new self('Learning Locker is not configured: set LEARNING_LOCKER_URL, LEARNING_LOCKER_KEY and LEARNING_LOCKER_SECRET.');
     }
 
     public function status(): ?int

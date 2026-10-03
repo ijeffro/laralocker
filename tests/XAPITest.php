@@ -103,4 +103,62 @@ class XAPITest extends TestCase
         $this->assertSame(['id-1', 'id-2'], $ids);
         Http::assertSent(fn (Request $request) => $request->url() === 'https://lrs.example.com/data/xAPI/statements');
     }
+
+    public function test_takes_full_xapi_parts_a_timestamp_and_context(): void
+    {
+        $agent = ['objectType' => 'Agent', 'openid' => 'https://example.com/jane'];
+        $verb = ['id' => 'https://w3id.org/xapi/video/verbs/played', 'display' => ['en-US' => 'played']];
+        $object = ['objectType' => 'StatementRef', 'id' => 'abc'];
+
+        $statement = XAPI::actor($agent)->did($verb)->what($object)
+            ->context(['platform' => 'Tests'])
+            ->at('2026-01-02T03:04:05+00:00')
+            ->make();
+
+        $this->assertSame($agent, $statement['actor']);
+        $this->assertSame($verb, $statement['verb']);
+        $this->assertSame($object, $statement['object']);
+        $this->assertSame(['platform' => 'Tests'], $statement['context']);
+        $this->assertSame('2026-01-02T03:04:05+00:00', $statement['timestamp']);
+    }
+
+    public function test_store_is_an_alias_of_send(): void
+    {
+        Http::fake(['*' => Http::response(['id-1'])]);
+
+        $this->assertSame('id-1', XAPI::actor(['email' => 'a@example.com'])->did('passed')->what('https://example.com/a')->store());
+    }
+
+    public function test_reads_one_statement_by_its_xapi_id(): void
+    {
+        Http::fake(['*' => Http::response(['id' => 'id-1'])]);
+
+        XAPI::statement('id-1');
+
+        Http::assertSent(fn (Request $request) => $request->url() === 'https://lrs.example.com/data/xAPI/statements?statementId=id-1');
+    }
+
+    public function test_rejects_unknown_verbs(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        XAPI::actor(['email' => 'a@example.com'])->did('frobnicated');
+    }
+
+    public function test_rejects_actors_without_an_identifier(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        XAPI::actor(['name' => 'Nobody']);
+    }
+
+    public function test_account_actors_need_a_homepage(): void
+    {
+        config(['laralocker.xapi.homepage' => null]);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('homepage');
+
+        XAPI::actor(['account' => 1]);
+    }
 }

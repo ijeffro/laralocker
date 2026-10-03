@@ -3,8 +3,9 @@
 namespace Ijeffro\Laralocker;
 
 use DateTimeInterface;
-use InvalidArgumentException;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
+use InvalidArgumentException;
 
 /**
  * Build and send xAPI statements to Learning Locker's /data/xAPI endpoint.
@@ -33,8 +34,7 @@ class XAPI
         protected Connection $connection,
         protected string $language = 'en-GB',
         protected ?string $homepage = null,
-    ) {
-    }
+    ) {}
 
     /**
      * Who did it. Takes ['name', 'email'], ['name', 'account'] (with the
@@ -186,9 +186,7 @@ class XAPI
      */
     public function more(string $more): array
     {
-        $path = preg_replace('#^.*?/data/xAPI/#', '', $more);
-
-        return $this->connection->send($this->connection->xapi(), 'GET', $path);
+        return $this->connection->send($this->connection->xapi(), 'GET', Str::after($more, '/data/xAPI/'));
     }
 
     protected function agent(array $actor): array

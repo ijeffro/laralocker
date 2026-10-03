@@ -1,10 +1,22 @@
-<h1 align="center">LaraLocker</h1>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="art/logo-dark.svg">
+    <img src="art/logo-light.svg" alt="LaraLocker" width="420">
+  </picture>
+</p>
 
 <p align="center">
-<a href="https://github.com/ijeffro/laralocker/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/ijeffro/laralocker/tests.yml?branch=master&style=flat-square&label=tests" alt="Tests"></a>
-<a href="https://packagist.org/packages/ijeffro/laralocker"><img src="https://img.shields.io/packagist/v/ijeffro/laralocker.svg?style=flat-square" alt="Latest Version on Packagist"></a>
-<a href="https://packagist.org/packages/ijeffro/laralocker"><img src="https://img.shields.io/packagist/dt/ijeffro/laralocker.svg?style=flat-square" alt="Total Downloads"></a>
-<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="MIT License"></a>
+<a href="https://github.com/ijeffro/laralocker/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/ijeffro/laralocker/tests.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
+<a href="https://github.com/ijeffro/laralocker/actions/workflows/tests.yml"><img src="https://img.shields.io/badge/coverage-100%25-brightgreen?style=flat-square" alt="Coverage: 100%, enforced in CI"></a>
+<a href="https://github.com/ijeffro/laralocker/actions/workflows/static-analysis.yml"><img src="https://img.shields.io/github/actions/workflow/status/ijeffro/laralocker/static-analysis.yml?branch=main&style=flat-square&label=PHPStan%20level%208" alt="PHPStan"></a>
+<a href="https://github.com/ijeffro/laralocker/actions/workflows/code-style.yml"><img src="https://img.shields.io/github/actions/workflow/status/ijeffro/laralocker/code-style.yml?branch=main&style=flat-square&label=code%20style" alt="Code style"></a>
+<br>
+<a href="https://packagist.org/packages/ijeffro/laralocker"><img src="https://img.shields.io/packagist/v/ijeffro/laralocker?style=flat-square" alt="Latest version on Packagist"></a>
+<a href="https://packagist.org/packages/ijeffro/laralocker"><img src="https://img.shields.io/packagist/dt/ijeffro/laralocker?style=flat-square" alt="Total downloads"></a>
+<a href="composer.json"><img src="https://img.shields.io/badge/php-%5E8.2-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP ^8.2"></a>
+<a href="composer.json"><img src="https://img.shields.io/badge/laravel-12%20%7C%2013-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Laravel 12 | 13"></a>
+<a href="https://github.com/adlnet/xAPI-Spec"><img src="https://img.shields.io/badge/xAPI-1.0.3-0E7490?style=flat-square" alt="xAPI 1.0.3"></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="MIT License"></a>
 </p>
 
 <p align="center">A Laravel API connector for <a href="https://docs.learninglocker.net/">Learning Locker®</a>, the open-source Learning Record Store.</p>
@@ -178,10 +190,20 @@ A 401 means the key or secret is wrong, or the client has been disabled. A 403 m
 ## Testing
 
 ```bash
-composer test
+composer test            # PHPUnit
+composer test-coverage   # PHPUnit with a coverage report (needs pcov or Xdebug)
+composer lint            # Pint
+composer analyse         # PHPStan, level 8
 ```
 
-The tests fake Learning Locker with `Http::fake()`, so they need no credentials. In your own app you can fake it the same way:
+On every push and pull request, CI runs the following:
+
+- **tests:** PHPUnit on PHP 8.2–8.5 × Laravel 12–13, each against the lowest and the latest dependencies;
+- **coverage:** fails below 100% line coverage;
+- **static analysis:** PHPStan level 8;
+- **code style:** Pint.
+
+The tests fake Learning Locker with `Http::fake()`, so they need no credentials. You can fake it the same way in your own app:
 
 ```php
 Http::fake(['your-learning-locker.example.com/api/v2/lrs*' => Http::response([['_id' => '1']])]);
